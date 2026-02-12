@@ -1,0 +1,7 @@
+{
+  "name": "MusB Research Portal",
+  "description": "A comprehensive web portal for MusB Research, supporting clinical R&D excellence from preclinical screening to community-based clinical trials.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

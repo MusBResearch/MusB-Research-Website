@@ -1,0 +1,121 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Search, ChevronDown, ArrowRight, Clock } from 'lucide-react';
+import { Condition } from '../types';
+import { fetchStudies } from '../api';
+
+const conditions: Condition[] = ['Gut', 'Brain', 'Metabolic', 'Aging', 'Women’s Health', 'Cancer Support'];
+
+export default function StudyFilterSection() {
+    const [selectedCondition, setSelectedCondition] = useState<Condition | 'All'>('All');
+    const [studies, setStudies] = useState<any[]>([]);
+
+    useEffect(() => {
+        fetchStudies().then(setStudies).catch(() => { });
+    }, []);
+
+    const filteredStudies = studies.filter(study => {
+        if (selectedCondition !== 'All' && study.condition !== selectedCondition) return false;
+        return true;
+    }).slice(0, 3); // Display 3 trials as requested
+
+    return (
+        <section className="pt-12 pb-12 bg-transparent relative z-10 overflow-hidden">
+            {/* Background Accents */}
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 via-transparent to-transparent pointer-events-none"></div>
+
+            <div className="max-w-[1700px] mx-auto px-6 md:px-12 relative z-10">
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
+                    <div className="space-y-6 max-w-2xl">
+                        <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
+                            Find a Clinical Study <br />Near You
+                        </h2>
+                        <p className="text-xl text-slate-400 font-medium">
+                            Explore ongoing clinical research studies and see if you qualify to participate.
+                        </p>
+                    </div>
+
+                    {/* Filter Bar */}
+                    <div className="flex flex-wrap items-center gap-6 p-4 bg-white/5 backdrop-blur-xl rounded-3xl shadow-xl border border-white/10">
+                        <div className="relative group">
+                            <select
+                                value={selectedCondition}
+                                onChange={(e) => setSelectedCondition(e.target.value as any)}
+                                className="appearance-none bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 pr-12 text-slate-200 font-bold focus:ring-2 focus:ring-cyan-500 cursor-pointer outline-none transition-all w-full md:w-64"
+                            >
+                                <option value="All" className="bg-slate-900 text-white">All Conditions</option>
+                                {conditions.map(c => (
+                                    <option key={c} value={c} className="bg-slate-900 text-white">{c}</option>
+                                ))}
+                            </select>
+                            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none group-hover:text-cyan-400 transition-colors" />
+                        </div>
+
+
+                    </div>
+                </div>
+
+                {/* Study Cards Grid */}
+                <div className="grid md:grid-cols-3 gap-8 mb-16">
+                    {filteredStudies.length > 0 ? (
+                        filteredStudies.map((study) => (
+                            <div key={study.id} className="group relative bg-white/5 backdrop-blur-xl rounded-[3rem] p-10 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] hover:shadow-[0_50px_100px_-20px_rgba(6,182,212,0.25)] hover:bg-white/10 border border-white/5 transition-all duration-500 flex flex-col items-start gap-8">
+                                <div className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest ${study.condition === 'Gut' ? 'bg-green-500/10 text-green-400' :
+                                    study.condition === 'Brain' ? 'bg-purple-500/10 text-purple-400' :
+                                        study.condition === 'Metabolic' ? 'bg-orange-500/10 text-orange-400' :
+                                            study.condition === 'Aging' ? 'bg-blue-500/10 text-blue-400' :
+                                                study.condition === 'Women’s Health' ? 'bg-pink-500/10 text-pink-400' :
+                                                    'bg-cyan-500/10 text-cyan-400'
+                                    }`}>
+                                    {study.condition}
+                                </div>
+
+                                <h3 className="text-2xl font-black text-white leading-tight group-hover:text-cyan-400 transition-colors">
+                                    {study.title}
+                                </h3>
+
+                                <div className="space-y-4 w-full">
+                                    <div className="flex items-center gap-4 text-slate-400">
+                                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-indigo-400 transition-colors">
+                                            <Clock className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Duration</div>
+                                            <div className="font-bold text-slate-200">{study.duration}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <Link
+                                    to={`/trials?id=${study.id}`}
+                                    className="mt-4 w-full bg-cyan-500 text-slate-900 text-center py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white transition-all shadow-lg flex items-center justify-center gap-3 overflow-hidden transition-all group/btn shadow-cyan-500/20"
+                                >
+                                    <span>Check Eligibility</span>
+                                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="col-span-3 py-20 text-center space-y-4">
+                            <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center mx-auto text-slate-500 mb-4 border border-white/5">
+                                <Search className="w-10 h-10" />
+                            </div>
+                            <h3 className="text-2xl font-black text-white">No matching studies found</h3>
+                            <p className="text-slate-500 font-medium">Try adjusting your filters to see more results.</p>
+                        </div>
+                    )}
+                </div>
+
+                <div className="text-center">
+                    <Link
+                        to="/trials"
+                        className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white/10 hover:-translate-y-1 transition-all inline-flex items-center gap-3 shadow-lg"
+                    >
+                        View All Clinical Trials
+                        <ArrowRight className="w-4 h-4" />
+                    </Link>
+                </div>
+            </div>
+        </section>
+    );
+}
