@@ -24,7 +24,7 @@ export default function StudyFilterSection() {
             {/* Background Accents */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 via-transparent to-transparent pointer-events-none"></div>
 
-            <div className="max-w-[1700px] mx-auto px-6 md:px-12 relative z-10">
+            <div className="max-w-[1700px] mx-auto px-4 md:px-12 relative z-10">
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
                     <div className="space-y-6 max-w-2xl">
                         <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">

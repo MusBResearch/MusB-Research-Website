@@ -160,7 +160,7 @@ export default function News() {
             {/* SECTION 1: PAGE HEADER (Hero) */}
             <section className="relative pt-40 pb-20 overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)]"></div>
-                <div className="max-w-[1700px] mx-auto px-6 md:px-12 relative z-10 text-center">
+                <div className="max-w-[1700px] mx-auto px-4 md:px-12 relative z-10 text-center">
                     <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
                         News & <span className="text-cyan-400">Events</span>
                     </h1>
@@ -172,7 +172,7 @@ export default function News() {
 
             {/* SECTION 2: FILTER & SEARCH BAR */}
             <section className="sticky top-20 z-40 bg-slate-950/80 backdrop-blur-md border-y border-white/5 py-6">
-                <div className="max-w-[1700px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div className="max-w-[1700px] mx-auto px-4 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-8">
                     {/* Filter Chips */}
                     <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
                         {categories.map((cat) => (
@@ -221,7 +221,7 @@ export default function News() {
                 </div>
             </section>
 
-            <main className="max-w-[1700px] mx-auto px-6 md:px-12 py-16">
+            <main className="max-w-[1700px] mx-auto px-4 md:px-12 py-16">
                 {viewMode === 'grid' ? (
                     <div className="space-y-20">
                         {/* SECTION 3: FEATURED STORY */}
@@ -409,7 +409,7 @@ export default function News() {
             </main>
 
             {/* SECTION 6: CALL TO ACTION (Contextual) */}
-            <section className="max-w-[1700px] mx-auto px-6 md:px-12 py-16">
+            <section className="max-w-[1700px] mx-auto px-4 md:px-12 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* For Sponsors / Partners */}
                     <div className="p-10 rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/5 flex flex-col items-start space-y-6 group">
@@ -436,7 +436,7 @@ export default function News() {
             </section>
 
             {/* SECTION 7: NEWSLETTER SIGN-UP */}
-            <section className="max-w-[1700px] mx-auto px-6 md:px-12 pb-20 pt-16">
+            <section className="max-w-[1700px] mx-auto px-4 md:px-12 pb-20 pt-16">
                 <div className="relative p-12 md:p-24 rounded-[4.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl text-white overflow-hidden text-center space-y-12">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400/10 blur-3xl rounded-full"></div>
                     <div className="space-y-6 max-w-2xl mx-auto">

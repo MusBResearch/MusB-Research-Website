@@ -137,7 +137,7 @@ const Support: React.FC = () => {
                 {/* Section 1: Hero */}
                 <section className="relative overflow-hidden">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)]"></div>
-                    <div className="max-w-[1700px] mx-auto px-6 md:px-12 relative z-10">
+                    <div className="max-w-[1700px] mx-auto px-4 md:px-12 relative z-10">
                         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
                             <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-[1] uppercase italic">
                                 Your Trusted Partner <br />
@@ -176,7 +176,7 @@ const Support: React.FC = () => {
                 </section>
                 {/* Section 2: 3 Ways We Support */}
                 <section className="py-24 relative z-10" id="pillars">
-                    <div className="max-w-[1700px] mx-auto px-6 md:px-12">
+                    <div className="max-w-[1700px] mx-auto px-4 md:px-12">
                         <div className="text-center space-y-8 mb-24 max-w-6xl mx-auto">
                             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight uppercase italic">
                                 Three Ways MusB™ Research <br />Supports Your Program
@@ -286,7 +286,7 @@ const Support: React.FC = () => {
 
                 {/* Section 3: Expertise */}
                 <section className="py-24 relative z-10 overflow-hidden">
-                    <div className="max-w-[1700px] mx-auto px-6 md:px-12">
+                    <div className="max-w-[1700px] mx-auto px-4 md:px-12">
                         <div className="text-center space-y-6 mb-24">
                             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight uppercase italic">Our Expertise Lies In</h2>
                             <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto">
@@ -337,7 +337,7 @@ const Support: React.FC = () => {
 
                 {/* Section 4: Success Stories */}
                 <section className="py-24 relative z-10 bg-slate-900/20">
-                    <div className="max-w-[1700px] mx-auto px-6 md:px-12">
+                    <div className="max-w-[1700px] mx-auto px-4 md:px-12">
                         <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
                             <div className="space-y-6 max-w-3xl">
                                 <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">Success Stories</h2>
@@ -374,7 +374,7 @@ const Support: React.FC = () => {
 
                 {/* Section 5: Our Approach */}
                 <section className="py-24 relative z-10">
-                    <div className="max-w-[1700px] mx-auto px-6 md:px-12 text-center">
+                    <div className="max-w-[1700px] mx-auto px-4 md:px-12 text-center">
                         <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-24">Our Approach</h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 mb-24 text-left">
                             {[
@@ -405,7 +405,7 @@ const Support: React.FC = () => {
 
                 {/* Section 6: Integrated Workflow */}
                 <section className="py-24 relative z-10 bg-slate-900/40 backdrop-blur-3xl border-y border-white/5">
-                    <div className="max-w-[1700px] mx-auto px-6 md:px-12 text-center">
+                    <div className="max-w-[1700px] mx-auto px-4 md:px-12 text-center">
                         <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-24">
                             An Integrated Path from <br />Discovery to Validation
                         </h2>
@@ -444,7 +444,7 @@ const Support: React.FC = () => {
                 {/* Section 7: Strategic Closing */}
                 <section className="py-24 relative z-10 overflow-hidden">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-cyan-500/5 blur-[180px] rounded-full pointer-events-none"></div>
-                    <div className="max-w-7xl mx-auto px-6 text-center space-y-16">
+                    <div className="max-w-7xl mx-auto px-4 md:px-12 text-center space-y-16">
                         <div className="space-y-8 animate-fade-in-up">
                             <h2 className="text-3xl md:text-5xl font-black text-white leading-[1.1] tracking-tighter">
                                 Choosing MusB™ Research means partnering with a leader <br />

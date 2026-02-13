@@ -63,7 +63,7 @@ export default function Innovations() {
 
             <div className="relative z-10 space-y-20 pt-40 pb-24 animate-in fade-in duration-1000">
                 {/* SECTION 1: HERO – INNOVATION WITH PURPOSE */}
-                <section className="max-w-[1700px] mx-auto px-6 md:px-12">
+                <section className="max-w-[1700px] mx-auto px-4 md:px-12">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         {/* Text Left */}
                         <div className="space-y-10">
@@ -116,7 +116,7 @@ export default function Innovations() {
                 </section>
 
                 {/* SECTION 2: INNOVATE WITH US – INDUSTRY-SPONSORED RESEARCH */}
-                <section className="max-w-[1700px] mx-auto px-6 md:px-12">
+                <section className="max-w-[1700px] mx-auto px-4 md:px-12">
                     <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-16 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[150px] rounded-full"></div>
 
@@ -182,7 +182,7 @@ export default function Innovations() {
                 </section>
 
                 {/* SECTION 3: FROM CONCEPT TO PRODUCT – SCIENCE-DRIVEN DEVELOPMENT */}
-                <section className="max-w-[1700px] mx-auto px-6 md:px-12">
+                <section className="max-w-[1700px] mx-auto px-4 md:px-12">
                     <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-16 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
                         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 blur-[150px] rounded-full"></div>
 
@@ -200,7 +200,7 @@ export default function Innovations() {
 
                             <div className="space-y-8">
                                 <h3 className="text-3xl font-black text-white uppercase text-center">Our Concept-to-Product Pathway</h3>
-                                <div className="grid md:grid-cols-5 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                                     {[
                                         { step: 1, title: "Scientific feasibility & mechanism mapping" },
                                         { step: 2, title: "In vitro and in vivo validation" },
@@ -244,7 +244,7 @@ export default function Innovations() {
                 </section>
 
                 {/* SECTION 4: SCIENCE YOU CAN BUILD ON */}
-                <section className="max-w-[1700px] mx-auto px-6 md:px-12">
+                <section className="max-w-[1700px] mx-auto px-4 md:px-12">
                     <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-16 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden text-center">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 blur-[180px] rounded-full"></div>
 
@@ -267,13 +267,13 @@ export default function Innovations() {
                 </section>
 
                 {/* SECTION 5: TECHNOLOGY SHOWCASE */}
-                <section className="max-w-[1700px] mx-auto px-6 md:px-12 space-y-16">
+                <section className="max-w-[1700px] mx-auto px-4 md:px-12 space-y-16">
                     <div className="text-center space-y-4">
                         <span className="text-cyan-400 font-black text-sm uppercase tracking-[0.4em]">OUR INNOVATION PIPELINE</span>
                         <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight">Technology Showcase</h2>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {technologies.map((tech, idx) => (
                             <div key={idx} className="bg-[#0D121F]/60 backdrop-blur-2xl p-12 rounded-[4rem] border border-white/5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] hover:shadow-[0_50px_100px_-20px_rgba(6,182,212,0.15)] transition-all duration-700 group relative overflow-hidden flex flex-col">
                                 <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${tech.gradient} opacity-5 blur-3xl group-hover:opacity-10 transition-all`}></div>
@@ -329,7 +329,7 @@ export default function Innovations() {
                     </div>
                 </section>
                 {/* SECTION 6: WHY INNOVATE WITH MUSB RESEARCH */}
-                <section className="max-w-[1700px] mx-auto px-6 md:px-12">
+                <section className="max-w-[1700px] mx-auto px-4 md:px-12">
                     <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-16 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full"></div>
 
@@ -339,7 +339,7 @@ export default function Innovations() {
                                 <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight">Trust & Scientific Excellence</h2>
                             </div>
 
-                            <div className="grid md:grid-cols-5 gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                                 {[
                                     { title: "Scientist-founded and led", icon: Sparkles },
                                     { title: "Integrated research, lab, and biorepository", icon: FlaskConical },
@@ -359,7 +359,7 @@ export default function Innovations() {
                     </div>
                 </section>
                 {/* FINAL CALL TO ACTION */}
-                <section className="max-w-[1700px] mx-auto px-6 md:px-12 pb-20">
+                <section className="max-w-[1700px] mx-auto px-4 md:px-12 pb-20">
                     <div className="bg-gradient-to-br from-[#0D121F]/80 to-[#070B14]/80 backdrop-blur-3xl rounded-[5rem] p-16 md:p-32 border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9)] relative overflow-hidden text-center group">
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                         <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full"></div>

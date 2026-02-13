@@ -89,7 +89,7 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Sticky Header */}
             <header className="fixed top-0 left-0 right-0 z-50 glass-nav h-24 transition-all duration-500">
-                <div className="max-w-[1800px] mx-auto px-6 md:px-12 h-full flex items-center justify-between">
+                <div className="max-w-[1800px] mx-auto px-4 md:px-12 h-full flex items-center justify-between">
                     {/* Logo - Acts as Home button opening in new tab */}
                     <a
                         href="/"
@@ -195,7 +195,7 @@ export default function Layout({ children }: LayoutProps) {
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="xl:hidden p-2 text-slate-800 hover:text-cyan-600 bg-slate-900/5 rounded-lg border border-slate-900/10"
+                        className="xl:hidden p-3 text-slate-800 hover:text-cyan-600 bg-slate-900/5 rounded-lg border border-slate-900/10"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? <X /> : <Menu />}
@@ -292,7 +292,7 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Footer Section */}
             <footer className="relative z-10 pt-48 bg-slate-950/40 border-t border-white/5">
-                <div className="max-w-[1700px] mx-auto px-6 md:px-12 pb-12">
+                <div className="max-w-[1700px] mx-auto px-4 md:px-12 pb-12">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
                         {/* Left Column: Branding & Contact */}
                         <div className="lg:col-span-4 space-y-10">

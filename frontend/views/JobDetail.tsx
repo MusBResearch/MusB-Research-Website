@@ -27,7 +27,7 @@ export default function JobDetail() {
 
     if (!job) {
         return (
-            <div className="min-h-screen pt-40 pb-24 flex items-center justify-center text-center px-6 relative overflow-hidden">
+            <div className="min-h-screen pt-40 pb-24 flex items-center justify-center text-center px-4 md:px-6 relative overflow-hidden">
                 {/* Atmospheric Background Layers */}
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-blue-600/10 blur-[120px] rounded-full"></div>
@@ -59,7 +59,7 @@ export default function JobDetail() {
             {/* HERO SECTION */}
             <section className="relative pt-40 pb-16 overflow-hidden z-10">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)]"></div>
-                <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+                <div className="max-w-[1200px] mx-auto px-4 md:px-12 relative z-10">
                     <Link to="/careers" className="inline-flex items-center gap-2 text-slate-500 hover:text-cyan-400 font-black uppercase tracking-widest text-xs mb-12 transition-colors">
                         <ChevronLeft className="w-4 h-4" /> Back to Careers
                     </Link>
@@ -95,7 +95,7 @@ export default function JobDetail() {
             </section>
 
             {/* CONTENT SECTION */}
-            <section className="max-w-[1200px] mx-auto px-6 py-16 grid lg:grid-cols-3 gap-16">
+            <section className="max-w-[1200px] mx-auto px-4 md:px-12 py-16 grid lg:grid-cols-3 gap-16">
                 <div className="lg:col-span-2 space-y-16">
                     {/* Description */}
                     <div className="space-y-6">

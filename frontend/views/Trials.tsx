@@ -152,7 +152,7 @@ export default function Trials() {
 
             <div className="relative z-10 pb-24 animate-in fade-in duration-1000">
                 {/* HERO SECTION */}
-                <section className="relative pt-40 pb-24 max-w-[1700px] mx-auto px-6 md:px-12 overflow-hidden">
+                <section className="relative pt-40 pb-24 max-w-[1700px] mx-auto px-4 md:px-12 overflow-hidden">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none"></div>
                     <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
                         <div className="space-y-8">
@@ -210,7 +210,7 @@ export default function Trials() {
 
                 {/* PROOF BAR */}
                 <section className="bg-white/5 border-y border-white/5 py-24" >
-                    <div className="max-w-[1400px] mx-auto px-6">
+                    <div className="max-w-[1400px] mx-auto px-4 md:px-12">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center text-center">
                             <div className="space-y-2">
                                 <div className="text-4xl font-black text-cyan-400">20+</div>
@@ -233,7 +233,7 @@ export default function Trials() {
                 </section >
 
                 {/* VALUE CARDS */}
-                <section className="py-24 max-w-[1400px] mx-auto px-6" >
+                <section className="py-24 max-w-[1400px] mx-auto px-4 md:px-12" >
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="group bg-slate-900/40 backdrop-blur-3xl p-12 rounded-[4rem] border border-white/5 hover:border-cyan-500/30 transition-all shadow-2xl">
                             <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-8 group-hover:scale-110 transition-transform">
@@ -256,7 +256,7 @@ export default function Trials() {
 
                 {/* HOW THE STUDY WORKS */}
                 <section id="how-it-works" className="bg-slate-950/40 backdrop-blur-2xl py-24 border-y border-white/5" >
-                    <div className="max-w-[1400px] mx-auto px-6">
+                    <div className="max-w-[1400px] mx-auto px-4 md:px-12">
                         <div className="text-center space-y-6 max-w-3xl mx-auto mb-24">
                             <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight uppercase">How the <span className="text-cyan-400">Study Works</span></h2>
                             <p className="text-xl text-slate-400 font-medium leading-relaxed">Simple. Safe. Science-Driven.</p>
@@ -311,7 +311,7 @@ export default function Trials() {
                 </section >
 
                 {/* CURRENT STUDIES */}
-                <section id="current-studies" className="py-24 max-w-[1400px] mx-auto px-6" >
+                <section id="current-studies" className="py-24 max-w-[1400px] mx-auto px-4 md:px-12" >
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
                         <div className="space-y-4">
                             <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight uppercase">Currently Recruiting Studies</h2>
@@ -409,7 +409,7 @@ export default function Trials() {
                 </section >
 
                 {/* VOLUNTEER FAQ */}
-                <section id="faq" className="py-24 max-w-[1000px] mx-auto px-6" >
+                <section id="faq" className="py-24 max-w-[1000px] mx-auto px-4 md:px-12" >
                     <div className="text-center mb-16 space-y-4">
                         <h2 className="text-4xl font-black text-white uppercase tracking-tight">Study Volunteer FAQs</h2>
                         <div className="h-1 w-24 bg-cyan-500 mx-auto rounded-full"></div>
@@ -438,7 +438,7 @@ export default function Trials() {
                 </section >
 
                 {/* FINAL CTA + CONTACT FORM */}
-                <section id="contact" className="py-24 max-w-[1400px] mx-auto px-6" >
+                <section id="contact" className="py-24 max-w-[1400px] mx-auto px-4 md:px-12" >
                     <div className="grid lg:grid-cols-2 gap-16">
                         <div className="space-y-8 lg:pt-12">
                             <h2 className="text-5xl font-black text-white leading-tight uppercase">Get Matched to <br />a Clinical Study</h2>

@@ -118,7 +118,7 @@ export default function WhyChooseUs() {
                 {/* ============================================================ */}
                 {/* SECTION 1: Hero */}
                 {/* ============================================================ */}
-                <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-32">
+                <section className="max-w-[1400px] mx-auto px-4 md:px-12 mb-32">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8 animate-fade-in-up">
                             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 font-bold text-xs tracking-widest uppercase">
@@ -162,7 +162,7 @@ export default function WhyChooseUs() {
                 {/* ============================================================ */}
                 {(settings?.show_three_ways_section !== false) && (
                     <section className="py-16 relative z-10 mb-16">
-                        <div className="max-w-[1700px] mx-auto px-6 md:px-12">
+                        <div className="max-w-[1700px] mx-auto px-4 md:px-12">
                             <div className="text-center space-y-8 mb-24 max-w-7xl mx-auto">
                                 <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">
                                     {settings?.three_ways_title || 'Three Ways MusB™ Research Supports Your Program'}
@@ -225,7 +225,7 @@ export default function WhyChooseUs() {
                 {/* ============================================================ */}
                 {(settings?.show_story_section !== false) && (
                     <section className="py-32 relative z-10">
-                        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+                        <div className="max-w-[1400px] mx-auto px-4 md:px-12">
                             <div className="grid lg:grid-cols-2 gap-20 items-center">
                                 <div className="space-y-8 animate-fade-in-up">
                                     <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-indigo-400/10 border border-indigo-400/20 text-indigo-400 font-bold text-xs tracking-widest uppercase">
@@ -270,7 +270,7 @@ export default function WhyChooseUs() {
                 {/* ============================================================ */}
                 {(settings?.show_partner_section !== false) && (
                     <section className="py-24 relative z-10 bg-slate-900/30 border-y border-white/5">
-                        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+                        <div className="max-w-[1400px] mx-auto px-4 md:px-12">
                             <div className="text-center space-y-6 mb-20">
                                 <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight uppercase">
                                     {partnerTitle}
@@ -305,7 +305,7 @@ export default function WhyChooseUs() {
                 {/* ============================================================ */}
                 {(settings?.show_mission_vision_section !== false) && (
                     <section className="py-32 relative z-10">
-                        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+                        <div className="max-w-[1400px] mx-auto px-4 md:px-12">
                             <div className="grid md:grid-cols-2 gap-12">
                                 {/* Mission */}
                                 <div className="p-16 rounded-[4rem] bg-gradient-to-br from-cyan-500/10 via-slate-900/50 to-transparent border border-white/5 backdrop-blur-3xl space-y-8 group hover:border-cyan-500/30 transition-all duration-700 relative overflow-hidden">
@@ -335,7 +335,7 @@ export default function WhyChooseUs() {
                 {/* ============================================================ */}
                 {(settings?.show_core_values_section !== false) && (
                     <section className="py-24 relative z-10">
-                        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+                        <div className="max-w-[1400px] mx-auto px-4 md:px-12">
                             <div className="text-center space-y-6 mb-20">
                                 <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight uppercase">Our Core Values</h2>
                                 <div className="h-1.5 w-24 bg-cyan-500 mx-auto rounded-full"></div>
@@ -363,7 +363,7 @@ export default function WhyChooseUs() {
                 {/* ============================================================ */}
                 {(settings?.show_trust_indicators !== false) && (
                     <section className="py-24 relative z-10 bg-slate-900/40 backdrop-blur-3xl border-y border-white/5">
-                        <div className="max-w-[1700px] mx-auto px-6 md:px-12">
+                        <div className="max-w-[1700px] mx-auto px-4 md:px-12">
                             <div className="text-center space-y-6 mb-20">
                                 <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight uppercase">
                                     {settings?.why_choose_title || 'Why Partner With Us'}
@@ -394,7 +394,7 @@ export default function WhyChooseUs() {
                 {/* SECTION 8: Final Call to Action */}
                 {/* ============================================================ */}
                 {(settings?.show_final_cta !== false) && (
-                    <section className="max-w-[1400px] mx-auto px-6 md:px-12 text-center space-y-12 py-32">
+                    <section className="max-w-[1400px] mx-auto px-4 md:px-12 text-center space-y-12 py-32">
                         <div className="space-y-6">
                             <p className="text-3xl md:text-4xl font-black text-white leading-[1.1] tracking-tighter">
                                 Choosing MusB™ Research means partnering with a leader in <span className="text-cyan-400">scientific innovation</span>, flexibility, and execution excellence.

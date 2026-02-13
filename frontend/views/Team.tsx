@@ -59,7 +59,7 @@ export default function Team() {
                         </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {teamMembers.map((member) => (
                             <div
                                 key={member.id}
