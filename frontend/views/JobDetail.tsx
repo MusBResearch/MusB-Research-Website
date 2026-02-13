@@ -72,7 +72,7 @@ export default function JobDetail() {
                                 )}
                                 <span className="text-xs font-black uppercase tracking-widest text-cyan-400">{job.department}</span>
                             </div>
-                            <h1 className="text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none">
+                            <h1 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none">
                                 {job.title}
                             </h1>
                             <div className="flex flex-wrap gap-8 text-sm font-bold text-slate-400 uppercase tracking-widest">
@@ -123,7 +123,7 @@ export default function JobDetail() {
                     )}
 
                     {/* Team Info Placeholder */}
-                    <div className="bg-white/5 border border-white/5 rounded-[3rem] p-10 md:p-16 relative overflow-hidden group">
+                    <div className="bg-white/5 border border-white/5 rounded-[3rem] p-8 md:p-16 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 blur-[80px] rounded-full"></div>
                         <div className="relative z-10 space-y-8">
                             <div className="space-y-4">

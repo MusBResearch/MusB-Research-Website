@@ -236,7 +236,7 @@ export default function News() {
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                                         />
                                     </div>
-                                    <div className="p-12 flex flex-col justify-center space-y-6">
+                                    <div className="p-8 md:p-12 flex flex-col justify-center space-y-6">
                                         <div className="flex items-center gap-3">
                                             <span className="px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-black uppercase tracking-widest border border-cyan-500/20">
                                                 Featured: {featuredItem.type}
@@ -412,7 +412,7 @@ export default function News() {
             <section className="max-w-[1700px] mx-auto px-4 md:px-12 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* For Sponsors / Partners */}
-                    <div className="p-10 rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/5 flex flex-col items-start space-y-6 group">
+                    <div className="p-8 md:p-10 rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/5 flex flex-col items-start space-y-6 group">
                         <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
                             <Users className="w-7 h-7" />
                         </div>
@@ -423,7 +423,7 @@ export default function News() {
                     </div>
 
                     {/* For Participants */}
-                    <div className="p-10 rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/5 flex flex-col items-start space-y-6 group">
+                    <div className="p-8 md:p-10 rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/5 flex flex-col items-start space-y-6 group">
                         <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                             <Lightbulb className="w-7 h-7" />
                         </div>
@@ -437,7 +437,7 @@ export default function News() {
 
             {/* SECTION 7: NEWSLETTER SIGN-UP */}
             <section className="max-w-[1700px] mx-auto px-4 md:px-12 pb-20 pt-16">
-                <div className="relative p-12 md:p-24 rounded-[4.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl text-white overflow-hidden text-center space-y-12">
+                <div className="relative p-8 md:p-24 rounded-[4.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl text-white overflow-hidden text-center space-y-12">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400/10 blur-3xl rounded-full"></div>
                     <div className="space-y-6 max-w-2xl mx-auto">
                         <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-none uppercase italic">Research Digests<br />Weekly Update</h2>

@@ -147,7 +147,7 @@ export default function Contact() {
                         <button
                             key={card.id}
                             onClick={() => handleCardClick(card.id)}
-                            className="group bg-white/5 border border-white/5 p-10 rounded-[3rem] text-left hover:bg-slate-900 transition-all duration-500 shadow-xl relative overflow-hidden h-full flex flex-col items-start"
+                            className="group bg-white/5 border border-white/5 p-8 md:p-10 rounded-[3rem] text-left hover:bg-slate-900 transition-all duration-500 shadow-xl relative overflow-hidden h-full flex flex-col items-start"
                         >
                             <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-400/5 blur-3xl group-hover:bg-cyan-400/10 transition-colors"></div>
                             <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all mb-8 shadow-lg">
@@ -186,7 +186,7 @@ export default function Contact() {
                                 </p>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} className="bg-slate-900/40 backdrop-blur-3xl p-10 md:p-16 rounded-[4.5rem] border border-white/5 space-y-10 shadow-2xl">
+                            <form onSubmit={handleSubmit} className="bg-slate-900/40 backdrop-blur-3xl p-6 md:p-16 rounded-[4.5rem] border border-white/5 space-y-10 shadow-2xl">
                                 <div className="grid md:grid-cols-2 gap-10">
                                     <div className="space-y-3">
                                         <label className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-400 ml-1">Full Name *</label>
@@ -262,7 +262,7 @@ export default function Contact() {
 
                     {/* RIGHT COLUMN: CONTACT DETAILS */}
                     <div className="space-y-16 lg:sticky lg:top-32 h-fit">
-                        <div className="space-y-12 bg-white/5 backdrop-blur-2xl p-12 rounded-[4rem] border border-white/10 shadow-2xl relative overflow-hidden group">
+                        <div className="space-y-12 bg-white/5 backdrop-blur-2xl p-8 md:p-12 rounded-[4rem] border border-white/10 shadow-2xl relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                             <h2 className="text-4xl font-black text-white italic uppercase tracking-tight">Get in Touch</h2>
 
@@ -381,7 +381,7 @@ export default function Contact() {
 
             {/* SECTION 6: FINAL CTA */}
             <section className="max-w-[1700px] mx-auto px-6 md:px-12 pb-20">
-                <div className="bg-gradient-to-r from-blue-600/20 via-indigo-600/20 to-cyan-600/20 backdrop-blur-3xl rounded-[4rem] p-12 md:p-20 border border-white/10 overflow-hidden relative group text-center space-y-12">
+                <div className="bg-gradient-to-r from-blue-600/20 via-indigo-600/20 to-cyan-600/20 backdrop-blur-3xl rounded-[4rem] p-8 md:p-20 border border-white/10 overflow-hidden relative group text-center space-y-12">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.1)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="space-y-6 max-w-2xl mx-auto relative z-10">
                         <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase italic leading-none">

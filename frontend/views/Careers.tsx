@@ -189,7 +189,7 @@ export default function Careers() {
             {/* SECTION 3: OUR CULTURE & VALUES */}
             < section className="bg-slate-900/30 py-20" >
                 <div className="max-w-[1700px] mx-auto px-6 md:px-12">
-                    <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-[4.5rem] p-12 md:p-24 border border-white/5 relative overflow-hidden">
+                    <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-[4.5rem] p-8 md:p-24 border border-white/5 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-400/5 blur-[120px] rounded-full"></div>
                         <div className="grid lg:grid-cols-2 gap-20 relative z-10">
                             <div className="space-y-10">
@@ -237,7 +237,7 @@ export default function Careers() {
                     {careerCategories.map((cat: CareerCategory) => {
                         const Icon = getCategoryIcon(cat.icon);
                         return (
-                            <div key={cat.id} className="group bg-white/5 border border-white/5 p-12 rounded-[3.5rem] hover:bg-slate-900 transition-all duration-500 shadow-xl overflow-hidden relative">
+                            <div key={cat.id} className="group bg-white/5 border border-white/5 p-8 md:p-12 rounded-[3.5rem] hover:bg-slate-900 transition-all duration-500 shadow-xl overflow-hidden relative">
                                 <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-400/5 blur-3xl group-hover:bg-cyan-400/10 transition-colors"></div>
                                 <div className="relative z-10 space-y-6">
                                     <div className="w-16 h-16 rounded-[1.5rem] bg-slate-900 border border-white/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform shadow-lg group-hover:bg-cyan-500 group-hover:text-slate-950">
@@ -280,7 +280,7 @@ export default function Careers() {
                     <div className="grid gap-6">
                         {filteredJobs.length > 0 ? (
                             filteredJobs.map((job: JobOpening) => (
-                                <div key={job.id} className="group bg-white/5 border border-white/5 rounded-[2.5rem] p-10 flex flex-col lg:flex-row items-start lg:items-center gap-10 hover:bg-white/10 hover:border-cyan-500/30 transition-all shadow-xl">
+                                <div key={job.id} className="group bg-white/5 border border-white/5 rounded-[2.5rem] p-6 md:p-10 flex flex-col lg:flex-row items-start lg:items-center gap-10 hover:bg-white/10 hover:border-cyan-500/30 transition-all shadow-xl">
                                     <div className="flex-grow space-y-4">
                                         <div className="flex flex-wrap gap-4 items-center">
                                             {job.isFeatured && (
@@ -344,7 +344,7 @@ export default function Careers() {
 
             {/* SECTION 7: STUDENTS & INTERNSHIPS */}
             < section className="max-w-[1700px] mx-auto px-6 md:px-12 py-16" >
-                <div className="bg-gradient-to-br from-indigo-900/40 to-slate-950 rounded-[4rem] p-12 md:p-20 border border-indigo-500/20 text-center flex flex-col items-center space-y-8 relative overflow-hidden group">
+                <div className="bg-gradient-to-br from-indigo-900/40 to-slate-950 rounded-[4rem] p-8 md:p-20 border border-indigo-500/20 text-center flex flex-col items-center space-y-8 relative overflow-hidden group">
                     <div className="absolute top-0 left-0 w-full h-full bg-indigo-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="w-20 h-20 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                         <GraduationCap className="w-10 h-10" />
@@ -369,7 +369,7 @@ export default function Careers() {
             </section >
 
             <section className="max-w-[1700px] mx-auto px-6 md:px-12 pb-32">
-                <div className="relative p-12 md:p-24 rounded-[4.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl overflow-hidden group">
+                <div className="relative p-8 md:p-24 rounded-[4.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl overflow-hidden group">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.1)_0%,transparent_50%)]"></div>
                     <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
                         <div className="text-center lg:text-left space-y-4">

@@ -99,7 +99,7 @@ export default function Innovations() {
 
                         {/* Visual Right */}
                         <div className="relative">
-                            <div className="bg-[#111827]/40 backdrop-blur-xl p-16 rounded-[4rem] border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden group">
+                            <div className="bg-[#111827]/40 backdrop-blur-xl p-8 md:p-16 rounded-[4rem] border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden group">
                                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                                 <div className="relative z-10 space-y-8">
                                     <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-2xl">
@@ -117,13 +117,13 @@ export default function Innovations() {
 
                 {/* SECTION 2: INNOVATE WITH US – INDUSTRY-SPONSORED RESEARCH */}
                 <section className="max-w-[1700px] mx-auto px-4 md:px-12">
-                    <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-16 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                    <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-8 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[150px] rounded-full"></div>
 
                         <div className="relative z-10 space-y-16">
                             <div className="text-center space-y-6 max-w-4xl mx-auto">
                                 <span className="text-cyan-400 font-black text-sm uppercase tracking-[0.4em]">INNOVATE WITH US – INDUSTRY-SPONSORED RESEARCH</span>
-                                <h2 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-tight uppercase">
+                                <h2 className="text-4xl md:text-7xl font-black text-white tracking-tight leading-tight uppercase">
                                     Bring Your Product. <span className="text-cyan-400">We Bring the Science.</span>
                                 </h2>
                                 <p className="text-xl text-slate-300 font-medium leading-relaxed">
@@ -133,7 +133,7 @@ export default function Innovations() {
 
                             <div className="grid md:grid-cols-2 gap-12">
                                 {/* We Support */}
-                                <div className="bg-[#111827]/40 backdrop-blur-xl p-10 rounded-3xl border border-white/5">
+                                <div className="bg-[#111827]/40 backdrop-blur-xl p-8 md:p-10 rounded-3xl border border-white/5">
                                     <h3 className="text-2xl font-black text-white uppercase mb-8">We support:</h3>
                                     <div className="space-y-4">
                                         {[
@@ -154,7 +154,7 @@ export default function Innovations() {
                                 </div>
 
                                 {/* What Makes This Different */}
-                                <div className="bg-[#111827]/40 backdrop-blur-xl p-10 rounded-3xl border border-white/5">
+                                <div className="bg-[#111827]/40 backdrop-blur-xl p-8 md:p-10 rounded-3xl border border-white/5">
                                     <h3 className="text-2xl font-black text-white uppercase mb-8">What Makes This Different</h3>
                                     <div className="space-y-4">
                                         {[
@@ -183,7 +183,7 @@ export default function Innovations() {
 
                 {/* SECTION 3: FROM CONCEPT TO PRODUCT – SCIENCE-DRIVEN DEVELOPMENT */}
                 <section className="max-w-[1700px] mx-auto px-4 md:px-12">
-                    <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-16 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                    <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-8 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
                         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 blur-[150px] rounded-full"></div>
 
                         <div className="relative z-10 space-y-16">
@@ -245,12 +245,12 @@ export default function Innovations() {
 
                 {/* SECTION 4: SCIENCE YOU CAN BUILD ON */}
                 <section className="max-w-[1700px] mx-auto px-4 md:px-12">
-                    <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-16 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden text-center">
+                    <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-8 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden text-center">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 blur-[180px] rounded-full"></div>
 
                         <div className="relative z-10 space-y-10 max-w-4xl mx-auto">
                             <div className="space-y-6">
-                                <h2 className="text-5xl md:text-8xl font-black text-white tracking-tight leading-tight uppercase">
+                                <h2 className="text-4xl md:text-8xl font-black text-white tracking-tight leading-tight uppercase">
                                     Science <span className="text-cyan-400">You Can Build On.</span>
                                 </h2>
                                 <div className="space-y-6">
@@ -275,7 +275,7 @@ export default function Innovations() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {technologies.map((tech, idx) => (
-                            <div key={idx} className="bg-[#0D121F]/60 backdrop-blur-2xl p-12 rounded-[4rem] border border-white/5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] hover:shadow-[0_50px_100px_-20px_rgba(6,182,212,0.15)] transition-all duration-700 group relative overflow-hidden flex flex-col">
+                            <div key={idx} className="bg-[#0D121F]/60 backdrop-blur-2xl p-8 md:p-12 rounded-[4rem] border border-white/5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] hover:shadow-[0_50px_100px_-20px_rgba(6,182,212,0.15)] transition-all duration-700 group relative overflow-hidden flex flex-col">
                                 <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${tech.gradient} opacity-5 blur-3xl group-hover:opacity-10 transition-all`}></div>
 
                                 <div className="relative z-10 space-y-8 flex-grow">
@@ -330,7 +330,7 @@ export default function Innovations() {
                 </section>
                 {/* SECTION 6: WHY INNOVATE WITH MUSB RESEARCH */}
                 <section className="max-w-[1700px] mx-auto px-4 md:px-12">
-                    <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-16 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                    <div className="bg-[#0A0F1C]/60 backdrop-blur-2xl rounded-[5rem] p-8 md:p-24 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full"></div>
 
                         <div className="relative z-10 space-y-16">
@@ -360,7 +360,7 @@ export default function Innovations() {
                 </section>
                 {/* FINAL CALL TO ACTION */}
                 <section className="max-w-[1700px] mx-auto px-4 md:px-12 pb-20">
-                    <div className="bg-gradient-to-br from-[#0D121F]/80 to-[#070B14]/80 backdrop-blur-3xl rounded-[5rem] p-16 md:p-32 border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9)] relative overflow-hidden text-center group">
+                    <div className="bg-gradient-to-br from-[#0D121F]/80 to-[#070B14]/80 backdrop-blur-3xl rounded-[5rem] p-8 md:p-32 border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9)] relative overflow-hidden text-center group">
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                         <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full"></div>
                         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full"></div>
@@ -368,7 +368,7 @@ export default function Innovations() {
                         <div className="relative z-10 space-y-12 max-w-5xl mx-auto">
                             <div className="space-y-6">
                                 <span className="text-cyan-400 font-black text-sm uppercase tracking-[0.4em]">Final Call to Action</span>
-                                <h2 className="text-5xl md:text-8xl font-black text-white tracking-tight leading-[1.1] uppercase">
+                                <h2 className="text-4xl md:text-8xl font-black text-white tracking-tight leading-[1.1] uppercase">
                                     Innovation <span className="text-cyan-400">Without Evidence</span> is Speculation.
                                 </h2>
                                 <p className="text-2xl text-slate-300 font-medium leading-relaxed">

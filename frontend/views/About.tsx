@@ -50,7 +50,7 @@ export default function About() {
                         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-purple-400/10 border border-purple-400/20 text-purple-400 font-bold text-xs tracking-widest uppercase mb-8">
                             <Building2 className="w-4 h-4" /> About MusB™ Research
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-tight mb-6">
+                        <h1 className="text-4xl md:text-7xl font-black text-white tracking-tight leading-tight mb-6">
                             Learn More <span className="text-purple-400">About Us</span>
                         </h1>
                         <p className="text-xl text-slate-400 font-medium max-w-3xl mx-auto">
@@ -66,7 +66,7 @@ export default function About() {
                                 <Link
                                     key={index}
                                     to={option.path}
-                                    className="group relative p-12 rounded-[3rem] bg-white/5 border-2 border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-500 overflow-hidden"
+                                    className="group relative p-8 md:p-12 rounded-[3rem] bg-white/5 border-2 border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-500 overflow-hidden"
                                 >
                                     {/* Gradient overlay on hover */}
                                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

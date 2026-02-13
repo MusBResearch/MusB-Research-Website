@@ -166,13 +166,13 @@ export default function Facilities() {
             </section>
 
             {/* 2) PILLAR SECTION A: RESEARCH & INNOVATION */}
-            <section id="research" className="py-24 px-6 relative border-t border-slate-900">
+            <section id="research" className="py-12 md:py-24 px-6 relative border-t border-slate-900">
                 <div className="max-w-7xl mx-auto space-y-16">
                     {/* Header */}
                     <div className="text-center max-w-3xl mx-auto space-y-6">
                         <span className="text-cyan-400 font-bold tracking-widest uppercase text-sm">{settings.research_pillar_title}</span>
                         <h2 className="text-4xl md:text-5xl font-black text-white">{settings.research_pillar_desc}</h2>
-                        <div className="flex justify-center gap-4">
+                        <div className="flex justify-center gap-4 flex-wrap">
                             <a href="#lead-capture" className="bg-white text-slate-900 px-6 py-3 rounded-lg font-bold hover:bg-slate-200 transition-colors">Discuss a Research Plan</a>
                             <button className="text-slate-400 font-bold hover:text-white transition-colors">See Example Designs</button>
                         </div>
@@ -240,7 +240,7 @@ export default function Facilities() {
             </section>
 
             {/* 3) PILLAR SECTION B: CENTRAL LAB */}
-            <section id="lab" className="py-24 px-6 relative bg-slate-900/30 border-t border-slate-800">
+            <section id="lab" className="py-12 md:py-24 px-6 relative bg-slate-900/30 border-t border-slate-800">
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center max-w-3xl mx-auto space-y-6">
                         <span className="text-indigo-400 font-bold tracking-widest uppercase text-sm">{settings.lab_pillar_title}</span>
@@ -295,7 +295,7 @@ export default function Facilities() {
             </section>
 
             {/* 4) PILLAR SECTION C: BIOREPOSITORY */}
-            <section id="bio" className="py-24 px-6 relative border-t border-slate-800">
+            <section id="bio" className="py-12 md:py-24 px-6 relative border-t border-slate-800">
                 <div className="max-w-7xl mx-auto space-y-16">
                     <div className="text-center max-w-3xl mx-auto space-y-6">
                         <span className="text-purple-400 font-bold tracking-widest uppercase text-sm">{settings.bio_pillar_title}</span>
@@ -365,7 +365,7 @@ export default function Facilities() {
             </section>
 
             {/* 6) SUCCESS SIGNALS */}
-            <section className="py-24 px-6 max-w-7xl mx-auto">
+            <section className="py-12 md:py-24 px-6 max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">Why Sponsors Choose MusB</h2>
                 </div>
@@ -384,7 +384,7 @@ export default function Facilities() {
             </section>
 
             {/* 7) FINAL LEAD CAPTURE (Conversion Section) */}
-            <section id="lead-capture" className="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-950 border-t border-slate-800">
+            <section id="lead-capture" className="py-12 md:py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-950 border-t border-slate-800">
                 <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
                     <div className="space-y-8">
                         <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">Ready to Move Faster With Better Evidence?</h2>

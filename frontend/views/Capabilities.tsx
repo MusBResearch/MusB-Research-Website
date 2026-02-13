@@ -50,7 +50,7 @@ const Capabilities: React.FC = () => {
 
         {/* Grid Section with Outline */}
         <section className="max-w-[1700px] mx-auto px-6 md:px-12">
-          <div className="p-10 md:p-16 rounded-[4.5rem] bg-slate-900/40 border border-white/5 backdrop-blur-3xl relative overflow-hidden group/container">
+          <div className="p-6 md:p-16 rounded-[4.5rem] bg-slate-900/40 border border-white/5 backdrop-blur-3xl relative overflow-hidden group/container">
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/5 blur-[120px] rounded-full"></div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
@@ -71,7 +71,7 @@ const Capabilities: React.FC = () => {
                 const IconComponent = IconMap[cap.icon as string] || Globe;
 
                 return (
-                  <div key={cap.id} className="bg-slate-950/50 backdrop-blur-xl p-10 rounded-[3rem] border border-white/5 hover:bg-slate-900 hover:border-cyan-500/30 transition-all duration-500 group shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] hover:shadow-[0_50px_100px_-20px_rgba(6,182,212,0.15)] flex flex-col items-start gap-8 relative overflow-hidden">
+                  <div key={cap.id} className="bg-slate-950/50 backdrop-blur-xl p-8 md:p-10 rounded-[3rem] border border-white/5 hover:bg-slate-900 hover:border-cyan-500/30 transition-all duration-500 group shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] hover:shadow-[0_50px_100px_-20px_rgba(6,182,212,0.15)] flex flex-col items-start gap-8 relative overflow-hidden">
                     <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="w-16 h-16 rounded-2xl bg-cyan-400 flex items-center justify-center text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.4)] group-hover:scale-110 transition-transform duration-500 relative z-10">
                       <IconComponent className="w-8 h-8" />
@@ -95,7 +95,7 @@ const Capabilities: React.FC = () => {
 
         {/* Bottom CTA */}
         <div className="max-w-[1400px] mx-auto px-6">
-          <div className="bg-slate-900/40 backdrop-blur-2xl rounded-[4rem] p-16 md:p-32 text-center space-y-12 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
+          <div className="bg-slate-900/40 backdrop-blur-2xl rounded-[4rem] p-8 md:p-32 text-center space-y-12 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
             <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-cyan-400 via-indigo-500 to-purple-500"></div>
             <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">Ready to start your <br />research journey?</h2>
             <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed">Our team is standing by to provide a custom project proposal tailored to your specific scientific and regulatory needs.</p>
