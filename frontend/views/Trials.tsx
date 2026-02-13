@@ -58,10 +58,10 @@ export default function Trials() {
     }, []);
 
     useEffect(() => {
-        fetchStudies().then(data => {
+        fetchStudies().then((data: any) => {
             setStudies(data);
             setLoading(false);
-        }).catch(err => {
+        }).catch((err: any) => {
             console.error("Failed to fetch studies", err);
             setLoading(false);
         });
@@ -72,7 +72,7 @@ export default function Trials() {
     const conditions = ["All", "Gut", "Metabolic", "Aging", "Women’s Health", "Brain/Cognition", "Skin", "Other"];
     const types = ["All", "Virtual", "On-site", "Hybrid"];
 
-    const filteredStudies = studies.filter(study => {
+    const filteredStudies = studies.filter((study: any) => {
         const matchesCondition = selectedCondition === 'All' || study.condition === selectedCondition;
         const matchesType = selectedType === 'All' || study.type === selectedType;
         const matchesSearch = study.title.toLowerCase().includes(searchQuery.toLowerCase()) || study.description.toLowerCase().includes(searchQuery.toLowerCase());

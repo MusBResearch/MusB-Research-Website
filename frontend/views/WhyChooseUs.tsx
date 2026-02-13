@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
 
     useEffect(() => {
         fetchAboutSettings()
-            .then(data => setSettings(data))
+            .then((data: any) => setSettings(data))
             .catch(() => setSettings(null)); // Fall back to defaults
     }, []);
 

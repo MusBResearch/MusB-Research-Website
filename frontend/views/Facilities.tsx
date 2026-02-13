@@ -20,11 +20,11 @@ export default function Facilities() {
 
     useEffect(() => {
         fetchFacilitiesPageData()
-            .then(res => {
+            .then((res: any) => {
                 setData(res);
                 setLoading(false);
             })
-            .catch(err => {
+            .catch((err: any) => {
                 console.error("Failed to fetch facilities data", err);
                 setLoading(false);
             });
