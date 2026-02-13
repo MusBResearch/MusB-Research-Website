@@ -1,0 +1,14 @@
+# Ignore backend
+backend/
+
+# Ignore local config files
+.vscode
+.venv
+.vite
+Allabout.txt
+
+# Additional global ignores
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
