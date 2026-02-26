@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-%s_3@h)4+#%gs%)nm@x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,musb-backend.onrender.com').split(',')
 
 
 # Application definition
@@ -148,7 +148,7 @@ if DEBUG:
 else:
     CORS_ALLOWED_ORIGINS = os.getenv(
         'CORS_ALLOWED_ORIGINS',
-        'http://localhost:5173,https://musbresearchwebsite.vercel.app'
+        'http://localhost:5173,https://musbresearchwebsite.vercel.app,https://musb-research-website.vercel.app'
     ).split(',')
 
 # Default primary key field type (MongoDB ObjectId)
