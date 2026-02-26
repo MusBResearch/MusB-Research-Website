@@ -148,7 +148,7 @@ if DEBUG:
 else:
     CORS_ALLOWED_ORIGINS = os.getenv(
         'CORS_ALLOWED_ORIGINS',
-        'http://localhost:5173'
+        'http://localhost:5173,https://musbresearchwebsite.vercel.app'
     ).split(',')
 
 # Default primary key field type (MongoDB ObjectId)
