@@ -66,7 +66,7 @@ export default function Facilities() {
     };
 
     return (
-        <div className="min-h-screen font-sans text-slate-200 relative overflow-hidden selection:bg-cyan-500/30">
+        <div className="min-h-screen font-sans text-slate-200 relative overflow-x-hidden selection:bg-cyan-500/30">
             {/* Atmospheric Background Layers */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-cyan-600/10 blur-[120px] rounded-full"></div>
@@ -76,11 +76,11 @@ export default function Facilities() {
             </div>
 
             {/* 1) PAGE HEADER + HERO (Above Fold) */}
-            <header className="relative pt-32 pb-20 px-6">
+            <header className="relative pt-24 pb-16 px-6">
 
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+                <div className="max-w-[90rem] mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
                     <div className="space-y-8 animate-in slide-in-from-left duration-700">
-                        <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-[1.1]">
+                        <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-[1.1]">
                             {settings.hero_title}
                         </h1>
                         <div className="space-y-4 text-lg text-slate-400 font-medium">
@@ -111,7 +111,7 @@ export default function Facilities() {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
                         </div>
                         {/* Floating Badge */}
-                        <div className="absolute -bottom-6 -left-6 bg-slate-900/90 backdrop-blur-xl p-6 rounded-2xl border border-slate-700 shadow-xl flex items-center gap-4">
+                        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 sm:-left-6 bg-slate-900/90 backdrop-blur-xl p-4 md:p-6 rounded-2xl border border-slate-700 shadow-xl flex items-center gap-4 z-20 w-[90%] sm:w-auto">
                             <div className="p-3 bg-green-500/20 rounded-xl text-green-400">
                                 <ShieldCheck className="w-8 h-8" />
                             </div>
@@ -125,10 +125,10 @@ export default function Facilities() {
             </header>
 
             {/* "Choose Your Support" Lead Router */}
-            <section className="relative z-20 -mt-10 px-6 pb-24">
-                <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+            <section className="relative z-20 mt-12 lg:-mt-10 px-6 pb-16">
+                <div className="max-w-[90rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Card 1 */}
-                    <Link to="#research" onClick={(e) => { e.preventDefault(); document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' }); }} className="group bg-slate-900/80 backdrop-blur-md border border-slate-800 hover:border-cyan-500/50 p-8 rounded-3xl transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-900/20">
+                    <Link to="#research" onClick={(e) => { e.preventDefault(); const el = document.getElementById('research'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: 'smooth' }); }} className="group bg-slate-900/80 backdrop-blur-md border border-slate-800 hover:border-cyan-500/50 p-8 rounded-3xl transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-900/20">
                         <div className="w-14 h-14 bg-cyan-900/30 rounded-2xl flex items-center justify-center text-cyan-400 mb-6 group-hover:bg-cyan-500 group-hover:text-slate-900 transition-colors">
                             <Microscope className="w-7 h-7" />
                         </div>
@@ -140,7 +140,7 @@ export default function Facilities() {
                     </Link>
 
                     {/* Card 2 */}
-                    <Link to="#lab" onClick={(e) => { e.preventDefault(); document.getElementById('lab')?.scrollIntoView({ behavior: 'smooth' }); }} className="group bg-slate-900/80 backdrop-blur-md border border-slate-800 hover:border-indigo-500/50 p-8 rounded-3xl transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/20">
+                    <Link to="#lab" onClick={(e) => { e.preventDefault(); const el = document.getElementById('lab'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: 'smooth' }); }} className="group bg-slate-900/80 backdrop-blur-md border border-slate-800 hover:border-indigo-500/50 p-8 rounded-3xl transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/20">
                         <div className="w-14 h-14 bg-indigo-900/30 rounded-2xl flex items-center justify-center text-indigo-400 mb-6 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
                             <Beaker className="w-7 h-7" />
                         </div>
@@ -152,7 +152,7 @@ export default function Facilities() {
                     </Link>
 
                     {/* Card 3 */}
-                    <Link to="#bio" onClick={(e) => { e.preventDefault(); document.getElementById('bio')?.scrollIntoView({ behavior: 'smooth' }); }} className="group bg-slate-900/80 backdrop-blur-md border border-slate-800 hover:border-purple-500/50 p-8 rounded-3xl transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-900/20">
+                    <Link to="#bio" onClick={(e) => { e.preventDefault(); const el = document.getElementById('bio'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: 'smooth' }); }} className="group bg-slate-900/80 backdrop-blur-md border border-slate-800 hover:border-purple-500/50 p-8 rounded-3xl transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-900/20">
                         <div className="w-14 h-14 bg-purple-900/30 rounded-2xl flex items-center justify-center text-purple-400 mb-6 group-hover:bg-purple-500 group-hover:text-white transition-colors">
                             <Archive className="w-7 h-7" />
                         </div>
@@ -166,12 +166,12 @@ export default function Facilities() {
             </section>
 
             {/* 2) PILLAR SECTION A: RESEARCH & INNOVATION */}
-            <section id="research" className="py-12 md:py-24 px-6 relative border-t border-slate-900">
-                <div className="max-w-7xl mx-auto space-y-16">
+            <section id="research" className="py-12 md:py-16 px-6 relative border-t border-slate-900">
+                <div className="max-w-[90rem] mx-auto space-y-12">
                     {/* Header */}
-                    <div className="text-center max-w-3xl mx-auto space-y-6">
-                        <span className="text-cyan-400 font-bold tracking-widest uppercase text-sm">{settings.research_pillar_title}</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white">{settings.research_pillar_desc}</h2>
+                    <div className="text-center max-w-6xl mx-auto space-y-6">
+
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.research_pillar_desc}</h2>
                         <div className="flex justify-center gap-4 flex-wrap">
                             <a href="#lead-capture" className="bg-white text-slate-900 px-6 py-3 rounded-lg font-bold hover:bg-slate-200 transition-colors">Discuss a Research Plan</a>
                             <button className="text-slate-400 font-bold hover:text-white transition-colors">See Example Designs</button>
@@ -179,7 +179,7 @@ export default function Facilities() {
                     </div>
 
                     {/* Modules (Accordion + Split) */}
-                    <div className="space-y-24">
+                    <div className="space-y-16">
                         {modules.filter((m: any) => m.pillar === 'Research').map((module: any, idx: number) => (
                             <div key={module.id} className={`flex flex-col lg:flex-row gap-12 items-center ${module.layout === 'ImageLeft' ? 'lg:flex-row-reverse' : ''}`}>
                                 {/* Text Content */}
@@ -240,17 +240,17 @@ export default function Facilities() {
             </section>
 
             {/* 3) PILLAR SECTION B: CENTRAL LAB */}
-            <section id="lab" className="py-12 md:py-24 px-6 relative bg-slate-900/30 border-t border-slate-800">
-                <div className="max-w-7xl mx-auto space-y-16">
-                    <div className="text-center max-w-3xl mx-auto space-y-6">
-                        <span className="text-indigo-400 font-bold tracking-widest uppercase text-sm">{settings.lab_pillar_title}</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white">{settings.lab_pillar_desc}</h2>
+            <section id="lab" className="py-12 md:py-16 px-6 relative bg-slate-900/30 border-t border-slate-800">
+                <div className="max-w-[90rem] mx-auto space-y-12">
+                    <div className="text-center max-w-6xl mx-auto space-y-6">
+
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.lab_pillar_desc}</h2>
                         <div className="flex justify-center gap-4">
                             <a href="#lead-capture" className="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-lg font-bold transition-colors">Request Lab Services</a>
                         </div>
                     </div>
 
-                    <div className="space-y-24">
+                    <div className="space-y-16">
                         {modules.filter((m: any) => m.pillar === 'Lab').map((module: any) => (
                             <div key={module.id} className={`flex flex-col lg:flex-row gap-12 items-center ${module.layout === 'ImageLeft' ? 'lg:flex-row-reverse' : ''}`}>
                                 <div className="flex-1 space-y-8">
@@ -295,16 +295,16 @@ export default function Facilities() {
             </section>
 
             {/* 4) PILLAR SECTION C: BIOREPOSITORY */}
-            <section id="bio" className="py-12 md:py-24 px-6 relative border-t border-slate-800">
-                <div className="max-w-7xl mx-auto space-y-16">
-                    <div className="text-center max-w-3xl mx-auto space-y-6">
-                        <span className="text-purple-400 font-bold tracking-widest uppercase text-sm">{settings.bio_pillar_title}</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white">{settings.bio_pillar_desc}</h2>
+            <section id="bio" className="py-12 md:py-16 px-6 relative border-t border-slate-800">
+                <div className="max-w-[90rem] mx-auto space-y-12">
+                    <div className="text-center max-w-6xl mx-auto space-y-6">
+
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.bio_pillar_desc}</h2>
                         <div className="flex justify-center gap-4">
                             <a href="#lead-capture" className="bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-lg font-bold transition-colors">Explore Biorepository</a>
                         </div>
                     </div>
-                    <div className="space-y-24">
+                    <div className="space-y-16">
                         {modules.filter((m: any) => m.pillar === 'Biorepository').map((module: any) => (
                             <div key={module.id} className={`flex flex-col lg:flex-row gap-12 items-center ${module.layout === 'ImageLeft' ? 'lg:flex-row-reverse' : ''}`}>
                                 <div className="flex-1 space-y-8">
@@ -350,8 +350,8 @@ export default function Facilities() {
             </section>
 
             {/* 5) CROSS-PILLAR TRUST STRIP */}
-            <section className="py-16 border-y border-slate-800 bg-slate-900/50">
-                <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-12 px-6">
+            <section className="py-12 border-y border-slate-800 bg-slate-900/50">
+                <div className="max-w-[90rem] mx-auto flex flex-wrap justify-center gap-12 px-6">
                     {trust_badges.map((badge: any, i: number) => {
                         const Icon = getIcon(badge.icon);
                         return (
@@ -365,11 +365,11 @@ export default function Facilities() {
             </section>
 
             {/* 6) SUCCESS SIGNALS */}
-            <section className="py-12 md:py-24 px-6 max-w-7xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">Why Sponsors Choose MusB</h2>
+            <section className="py-12 md:py-16 px-6 max-w-[90rem] mx-auto">
+                <div className="text-center mb-12">
+                    <h2 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tight">Why Sponsors Choose MusB</h2>
                 </div>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {success_signals.map((signal: any, i: number) => {
                         const Icon = getIcon(signal.icon);
                         return (
@@ -384,11 +384,11 @@ export default function Facilities() {
             </section>
 
             {/* 7) FINAL LEAD CAPTURE (Conversion Section) */}
-            <section id="lead-capture" className="py-12 md:py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-950 border-t border-slate-800">
-                <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
+            <section id="lead-capture" className="py-12 md:py-16 px-6 bg-gradient-to-br from-slate-900 to-slate-950 border-t border-slate-800">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
                     <div className="space-y-8">
-                        <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">Ready to Move Faster With Better Evidence?</h2>
-                        <p className="text-xl text-slate-400">We can support research, testing, and biospecimen management—individually or as an integrated program.</p>
+                        <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">Ready to Move Faster With Better Evidence?</h2>
+                        <p className="text-lg md:text-xl text-slate-400">We can support research, testing, and biospecimen management—individually or as an integrated program.</p>
                         <ul className="space-y-4 pt-4">
                             {['Integrated Preclinical & Clinical', 'Sponsor-Ready Reporting', 'Regulatory Compliance'].map(item => (
                                 <li key={item} className="flex items-center gap-3 font-bold text-slate-300">

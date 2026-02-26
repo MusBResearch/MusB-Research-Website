@@ -61,7 +61,7 @@ export const fetchNews = (type?: string, search?: string) => {
     const qs = params.toString() ? `?${params}` : '';
     return apiFetch<any[]>(`/api/news/${qs}`);
 };
-export const fetchNewsDetail = (id: number) => apiFetch<any>(`/api/news/${id}/`);
+export const fetchNewsDetail = (id: string) => apiFetch<any>(`/api/news/${id}/`);
 
 // ---- Careers ----
 
@@ -74,7 +74,7 @@ export const fetchJobOpenings = (filters?: { department?: string; type?: string;
     const qs = params.toString() ? `?${params}` : '';
     return apiFetch<any[]>(`/api/careers/jobs/${qs}`);
 };
-export const fetchJobDetail = (id: number) => apiFetch<any>(`/api/careers/jobs/${id}/`);
+export const fetchJobDetail = (id: string) => apiFetch<any>(`/api/careers/jobs/${id}/`);
 export const submitJobApplication = (data: FormData) =>
     apiFetch<any>('/api/careers/apply/', {
         method: 'POST',
@@ -83,10 +83,12 @@ export const submitJobApplication = (data: FormData) =>
 
 // ---- Studies / Clinical Trials ----
 
-export const fetchStudies = (condition?: string, status?: string) => {
+export const fetchStudies = (condition?: string, status?: string, isPaid?: boolean, isFreeTesting?: boolean) => {
     const params = new URLSearchParams();
     if (condition) params.set('condition', condition);
     if (status) params.set('status', status);
+    if (isPaid !== undefined) params.set('is_paid', String(isPaid));
+    if (isFreeTesting !== undefined) params.set('is_free_testing', String(isFreeTesting));
     const qs = params.toString() ? `?${params}` : '';
     return apiFetch<any[]>(`/api/studies/${qs}`);
 };
@@ -101,9 +103,14 @@ export const fetchStaffMembers = () => apiFetch<any[]>('/api/team/staff/');
 // ---- Innovation ----
 
 export const fetchTechnologies = () => apiFetch<any[]>('/api/innovation/technologies/');
-export const fetchTechnologyDetail = (id: number) => apiFetch<any>(`/api/innovation/technologies/${id}/`);
+export const fetchTechnologyDetail = (id: string) => apiFetch<any>(`/api/innovation/technologies/${id}/`);
 export const submitSponsorInquiry = (data: Record<string, any>) =>
     apiFetch<any>('/api/innovation/inquiry/', {
+        method: 'POST',
+        body: JSON.stringify(data),
+    });
+export const submitBookletDownload = (data: Record<string, any>) =>
+    apiFetch<any>('/api/innovation/booklet-download/', {
         method: 'POST',
         body: JSON.stringify(data),
     });

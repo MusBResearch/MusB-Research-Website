@@ -90,7 +90,7 @@ export default function Contact() {
 
     const handleCardClick = (id: string) => {
         setInquiryType(id);
-        formRef.current?.scrollIntoView({ behavior: 'smooth' });
+        if (formRef.current) { window.scrollTo({ top: formRef.current.getBoundingClientRect().top + window.scrollY, behavior: 'smooth' }); }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -119,7 +119,7 @@ export default function Contact() {
     };
 
     return (
-        <div className="min-h-screen font-sans text-slate-200 relative overflow-hidden">
+        <div className="min-h-screen font-sans text-slate-200 relative overflow-x-hidden">
             {/* Atmospheric Background Layers */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-blue-600/10 blur-[120px] rounded-full"></div>
@@ -131,7 +131,7 @@ export default function Contact() {
             <section className="relative pt-40 pb-20 overflow-hidden px-6">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)]"></div>
                 <div className="max-w-[1700px] mx-auto relative z-10 text-center space-y-8 animate-in fade-in slide-in-from-top-4 duration-700">
-                    <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter uppercase italic leading-[0.9]">
+                    <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-white tracking-tighter uppercase italic leading-[0.9]">
                         Contact Us
                     </h1>
                     <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed">
@@ -384,7 +384,7 @@ export default function Contact() {
                 <div className="bg-gradient-to-r from-blue-600/20 via-indigo-600/20 to-cyan-600/20 backdrop-blur-3xl rounded-[4rem] p-8 md:p-20 border border-white/10 overflow-hidden relative group text-center space-y-12">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.1)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="space-y-6 max-w-2xl mx-auto relative z-10">
-                        <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase italic leading-none">
+                        <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-white tracking-tighter uppercase italic leading-none">
                             Not sure where to start?
                         </h2>
                         <p className="text-xl font-bold text-slate-400 leading-relaxed uppercase tracking-widest">We’ll help guide you. Our experts are ready to assist.</p>

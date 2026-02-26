@@ -51,7 +51,7 @@ export default function Trials() {
             const element = document.getElementById(id);
             if (element) {
                 setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                    window.scrollTo({ top: element.getBoundingClientRect().top + window.scrollY, behavior: 'smooth' });
                 }, 100);
             }
         }
@@ -141,7 +141,7 @@ export default function Trials() {
     };
 
     return (
-        <div className="min-h-screen font-sans text-slate-200 relative overflow-hidden">
+        <div className="min-h-screen font-sans text-slate-200 relative overflow-x-hidden">
             {/* Atmospheric Background Layers */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-blue-600/10 blur-[120px] rounded-full"></div>
@@ -159,7 +159,7 @@ export default function Trials() {
                             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 font-bold text-xs tracking-widest uppercase">
                                 <HeartPulse className="w-4 h-4" /> Active Clinical Trials
                             </div>
-                            <h1 className="text-3xl md:text-7xl font-black text-white tracking-tight leading-[0.85] uppercase italic">
+                            <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-[0.85] uppercase italic">
                                 Join a Study. <br />
                                 Help Advance <br />
                                 <span className="text-cyan-400 italic font-black">Natural</span> Health Science.
@@ -257,15 +257,15 @@ export default function Trials() {
                 {/* HOW THE STUDY WORKS */}
                 <section id="how-it-works" className="bg-slate-950/40 backdrop-blur-2xl py-24 border-y border-white/5" >
                     <div className="max-w-[1400px] mx-auto px-4 md:px-12">
-                        <div className="text-center space-y-6 max-w-3xl mx-auto mb-24">
-                            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight uppercase">How the <span className="text-cyan-400">Study Works</span></h2>
-                            <p className="text-xl text-slate-400 font-medium leading-relaxed">Simple. Safe. Science-Driven.</p>
+                        <div className="text-center space-y-6 max-w-3xl mx-auto mb-12 md:mb-24">
+                            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">How the <span className="text-cyan-400">Study Works</span></h2>
+                            <p className="text-lg md:text-xl text-slate-400 font-medium leading-relaxed">Simple. Safe. Science-Driven.</p>
                         </div>
 
-                        <div className="p-6 md:p-16 rounded-[4.5rem] bg-slate-900/40 border border-white/5 backdrop-blur-3xl relative overflow-hidden group/container">
+                        <div className="p-8 md:p-16 rounded-[2.5rem] md:rounded-[4.5rem] bg-slate-900/40 border border-white/5 backdrop-blur-3xl relative overflow-hidden group/container">
                             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/5 blur-[120px] rounded-full"></div>
 
-                            <div className="grid lg:grid-cols-4 gap-12 relative z-10">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
                                 {[
                                     {
                                         step: "Step 1",
@@ -314,8 +314,8 @@ export default function Trials() {
                 <section id="current-studies" className="py-24 max-w-[1400px] mx-auto px-4 md:px-12" >
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
                         <div className="space-y-4">
-                            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight uppercase">Currently Recruiting Studies</h2>
-                            <p className="text-xl text-slate-400 font-medium">Explore open studies. Spots can fill quickly.</p>
+                            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight uppercase">Currently Recruiting Studies</h2>
+                            <p className="text-lg md:text-xl text-slate-400 font-medium">Explore open studies. Spots can fill quickly.</p>
                         </div>
                         <div className="bg-slate-900/40 backdrop-blur-xl p-4 rounded-3xl border border-white/10 flex gap-4">
                             <div className="relative">
@@ -343,10 +343,10 @@ export default function Trials() {
                         ))}
                     </div>
 
-                    <div className="p-6 md:p-16 rounded-[4.5rem] bg-slate-900/40 border border-white/5 backdrop-blur-3xl relative overflow-hidden group/container">
+                    <div className="p-8 md:p-16 rounded-[2.5rem] md:rounded-[4.5rem] bg-slate-900/40 border border-white/5 backdrop-blur-3xl relative overflow-hidden group/container">
                         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/5 blur-[120px] rounded-full"></div>
 
-                        <div className="grid lg:grid-cols-2 gap-8 relative z-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
                             {filteredStudies.map((study) => (
                                 <div key={study.id} className="group bg-slate-950/50 backdrop-blur-3xl border border-white/5 rounded-[3rem] p-6 md:p-10 hover:bg-slate-900 hover:border-cyan-500/30 transition-all shadow-2xl flex flex-col relative overflow-hidden shadow-2xl">
                                     <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -387,8 +387,8 @@ export default function Trials() {
 
                     <div className="max-w-[1400px] mx-auto px-6 relative z-10">
                         <div className="max-w-3xl space-y-12">
-                            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-tight uppercase">Join the MusB™ <br />Research Mission</h2>
-                            <p className="text-2xl text-slate-400 font-bold max-w-2xl">
+                            <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-tight uppercase">Join the MusB™ <br />Research Mission</h2>
+                            <p className="text-xl md:text-2xl text-slate-400 font-bold max-w-2xl">
                                 Make history in some of the world's largest studies on supplements and natural health products.
                             </p>
                             <div className="grid md:grid-cols-2 gap-8">
@@ -512,7 +512,7 @@ export default function Trials() {
                                 </div>
                                 <div className="space-y-4">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Health Interests (Check all that apply)</label>
-                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-6 bg-slate-950/30 rounded-3xl border border-white/5">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-6 bg-slate-950/30 rounded-3xl border border-white/5">
                                         {["Gut Health", "Aging", "Metabolic", "Cognition", "Women's Health", "Skin"].map(interest => (
                                             <label key={interest} className="flex items-center gap-3 cursor-pointer group">
                                                 <input

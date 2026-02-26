@@ -104,7 +104,7 @@ export default function WhyChooseUs() {
     };
 
     return (
-        <div className="min-h-screen font-sans text-slate-200 relative overflow-hidden">
+        <div className="min-h-screen font-sans text-slate-200 relative overflow-x-hidden">
             {/* Atmospheric Background Layers */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-cyan-600/10 blur-[120px] rounded-full"></div>

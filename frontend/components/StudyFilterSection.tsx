@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ChevronDown, ArrowRight, Clock } from 'lucide-react';
-import { Condition } from '@/types';
+import { Search, ChevronDown, ArrowRight, Clock, DollarSign, ShieldCheck } from 'lucide-react';
+import { Condition, Study } from '@/types';
 import { fetchStudies } from '@/api';
 
 const conditions: Condition[] = ['Gut', 'Brain', 'Metabolic', 'Aging', 'Women’s Health', 'Cancer Support'];
 
 export default function StudyFilterSection() {
     const [selectedCondition, setSelectedCondition] = useState<Condition | 'All'>('All');
-    const [studies, setStudies] = useState<any[]>([]);
+    const [showPaidOnly, setShowPaidOnly] = useState(false);
+    const [showFreeTestingOnly, setShowFreeTestingOnly] = useState(false);
+    const [studies, setStudies] = useState<Study[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetchStudies().then(setStudies).catch(() => { });
-    }, []);
+        setIsLoading(true);
+        const condition = selectedCondition === 'All' ? undefined : selectedCondition;
+        fetchStudies(condition, 'Recruiting', showPaidOnly || undefined, showFreeTestingOnly || undefined)
+            .then(data => {
+                setStudies(data);
+                setIsLoading(false);
+            })
+            .catch(() => setIsLoading(false));
+    }, [selectedCondition, showPaidOnly, showFreeTestingOnly]);
 
-    const filteredStudies = studies.filter(study => {
-        if (selectedCondition !== 'All' && study.condition !== selectedCondition) return false;
-        return true;
-    }).slice(0, 3); // Display 3 trials as requested
+    const displayedStudies = studies.slice(0, 3); // Display 3 trials as requested
 
     return (
         <section className="pt-12 pb-12 bg-transparent relative z-10 overflow-hidden">
@@ -51,14 +58,39 @@ export default function StudyFilterSection() {
                             <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none group-hover:text-cyan-400 transition-colors" />
                         </div>
 
+                        {/* Toggle Filters */}
+                        <div className="flex items-center gap-6 px-4">
+                            <label className="flex items-center gap-3 cursor-pointer group">
+                                <div
+                                    onClick={() => setShowPaidOnly(!showPaidOnly)}
+                                    className={`w-12 h-6 rounded-full p-1 transition-all duration-300 ${showPaidOnly ? 'bg-cyan-500' : 'bg-white/10'}`}
+                                >
+                                    <div className={`w-4 h-4 rounded-full bg-white transition-all duration-300 transform ${showPaidOnly ? 'translate-x-6' : 'translate-x-0'}`}></div>
+                                </div>
+                                <span className={`text-xs font-black uppercase tracking-widest transition-colors ${showPaidOnly ? 'text-cyan-400' : 'text-slate-500 group-hover:text-slate-300'}`}>Paid Studies</span>
+                            </label>
 
+                            <label className="flex items-center gap-3 cursor-pointer group">
+                                <div
+                                    onClick={() => setShowFreeTestingOnly(!showFreeTestingOnly)}
+                                    className={`w-12 h-6 rounded-full p-1 transition-all duration-300 ${showFreeTestingOnly ? 'bg-indigo-500' : 'bg-white/10'}`}
+                                >
+                                    <div className={`w-4 h-4 rounded-full bg-white transition-all duration-300 transform ${showFreeTestingOnly ? 'translate-x-6' : 'translate-x-0'}`}></div>
+                                </div>
+                                <span className={`text-xs font-black uppercase tracking-widest transition-colors ${showFreeTestingOnly ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300'}`}>Free Testing</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
 
                 {/* Study Cards Grid */}
-                <div className="grid md:grid-cols-3 gap-8 mb-16">
-                    {filteredStudies.length > 0 ? (
-                        filteredStudies.map((study) => (
+                <div className="grid md:grid-cols-3 gap-8 mb-16 min-h-[400px]">
+                    {isLoading ? (
+                        <div className="col-span-3 flex items-center justify-center py-20">
+                            <div className="w-12 h-12 border-4 border-cyan-500/20 border-t-cyan-500 rounded-full animate-spin"></div>
+                        </div>
+                    ) : displayedStudies.length > 0 ? (
+                        displayedStudies.map((study) => (
                             <div key={study.id} className="group relative bg-white/5 backdrop-blur-xl rounded-[3rem] p-10 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] hover:shadow-[0_50px_100px_-20px_rgba(6,182,212,0.25)] hover:bg-white/10 border border-white/5 transition-all duration-500 flex flex-col items-start gap-8">
                                 <div className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest ${study.condition === 'Gut' ? 'bg-green-500/10 text-green-400' :
                                     study.condition === 'Brain' ? 'bg-purple-500/10 text-purple-400' :
@@ -74,7 +106,17 @@ export default function StudyFilterSection() {
                                     {study.title}
                                 </h3>
 
-                                <div className="space-y-4 w-full">
+                                <div className="space-y-6 w-full">
+                                    <div className="flex items-center gap-4 text-slate-400">
+                                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-cyan-400 transition-colors">
+                                            <DollarSign className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Compensation</div>
+                                            <div className="font-bold text-slate-200">{study.compensation_range || 'Expenses Reimbursed'}</div>
+                                        </div>
+                                    </div>
+
                                     <div className="flex items-center gap-4 text-slate-400">
                                         <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-indigo-400 transition-colors">
                                             <Clock className="w-5 h-5" />

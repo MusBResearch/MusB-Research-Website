@@ -1,6 +1,3 @@
-# Ignore backend
-backend/
-
 # Ignore local config files
 .vscode
 .venv

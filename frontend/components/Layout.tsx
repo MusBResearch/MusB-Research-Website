@@ -74,7 +74,7 @@ export default function Layout({ children }: LayoutProps) {
             const element = document.getElementById(id);
             if (element) {
                 setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                    window.scrollTo({ top: element.getBoundingClientRect().top + window.scrollY, behavior: 'smooth' });
                 }, 100);
             }
         } else {
@@ -88,7 +88,7 @@ export default function Layout({ children }: LayoutProps) {
 
 
             {/* Sticky Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 glass-nav h-24 transition-all duration-500">
+            <header className="fixed top-0 left-0 right-0 z-50 glass-nav h-20 md:h-24 transition-all duration-500">
                 <div className="max-w-[1800px] mx-auto px-4 md:px-12 h-full flex items-center justify-between">
                     {/* Logo - Acts as Home button opening in new tab */}
                     <a
@@ -97,7 +97,7 @@ export default function Layout({ children }: LayoutProps) {
                         rel="noopener noreferrer"
                         className="flex-shrink-0 flex items-center gap-4 group"
                     >
-                        <div className="h-16 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-2xl shadow-2xl border border-white/20 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                        <div className="h-12 md:h-16 bg-white/10 backdrop-blur-md px-4 md:px-5 py-2 md:py-2.5 rounded-2xl shadow-2xl border border-white/20 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
                             <img src="/logo.jpg" alt="MusB™ Research" className="h-full w-auto object-contain brightness-110 contrast-125 rounded-lg" />
                         </div>
                     </a>
@@ -195,16 +195,16 @@ export default function Layout({ children }: LayoutProps) {
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="xl:hidden p-3 text-slate-800 hover:text-cyan-600 bg-slate-900/5 rounded-lg border border-slate-900/10"
+                        className="xl:hidden p-2 md:p-3 text-slate-800 hover:text-cyan-600 bg-slate-900/5 rounded-lg border border-slate-900/10"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
-                        {isMenuOpen ? <X /> : <Menu />}
+                        {isMenuOpen ? <X className="w-5 h-5 md:w-6 md:h-6" /> : <Menu className="w-5 h-5 md:w-6 md:h-6" />}
                     </button>
                 </div>
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="xl:hidden absolute top-24 left-6 right-6 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl animate-in fade-in slide-in-from-top-4 z-40 overflow-hidden border border-slate-200 max-h-[calc(100vh-8rem)] overflow-y-auto">
+                    <div className="xl:hidden absolute top-20 md:top-24 left-4 right-4 md:left-6 md:right-6 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl animate-in fade-in slide-in-from-top-4 z-40 overflow-hidden border border-slate-200 max-h-[calc(100vh-6rem)] md:max-h-[calc(100vh-8rem)] overflow-y-auto">
                         <div className="p-4 space-y-2">
                             {navItems.map((item) => (
                                 <div key={item.label}>
@@ -291,13 +291,13 @@ export default function Layout({ children }: LayoutProps) {
             </main>
 
             {/* Footer Section */}
-            <footer className="relative z-10 pt-48 bg-slate-950/40 border-t border-white/5">
-                <div className="max-w-[1700px] mx-auto px-4 md:px-12 pb-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+            <footer className="relative z-10 pt-24 md:pt-48 bg-slate-950/40 border-t border-white/5">
+                <div className="max-w-[1700px] mx-auto px-6 md:px-12 pb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16 md:mb-24">
                         {/* Left Column: Branding & Contact */}
-                        <div className="lg:col-span-4 space-y-10">
+                        <div className="lg:col-span-4 space-y-8 md:space-y-10">
                             <Link to="/" className="inline-block group">
-                                <div className="h-20 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-2xl shadow-2xl border border-white/20 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                                <div className="h-16 md:h-20 bg-white/10 backdrop-blur-md px-4 md:px-5 py-2 md:py-2.5 rounded-2xl shadow-2xl border border-white/20 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
                                     <img src="/logo.jpg" alt="MusB™ Research" className="h-full w-auto object-contain brightness-110 contrast-125" />
                                 </div>
                             </Link>
@@ -326,9 +326,9 @@ export default function Layout({ children }: LayoutProps) {
                         </div>
 
                         {/* Middle Column: Links & Social */}
-                        <div className="lg:col-span-4 space-y-16">
-                            <div className="grid grid-cols-2 gap-8 text-center lg:text-left">
-                                <div className="space-y-8">
+                        <div className="md:col-span-2 lg:col-span-4 space-y-12 md:space-y-16">
+                            <div className="grid grid-cols-2 gap-8 text-left">
+                                <div className="space-y-6 md:space-y-8">
                                     <h4 className="text-white font-black uppercase tracking-[0.2em] text-[13px]">Solutions</h4>
                                     <ul className="space-y-4">
                                         {[
@@ -337,12 +337,12 @@ export default function Layout({ children }: LayoutProps) {
                                             { label: 'Innovation', path: '/innovations' },
                                             { label: 'Join a Study!', path: '/trials' }
                                         ].map((item) => (
-                                            <li key={item.label}><Link to={item.path} className="text-slate-400 hover:text-cyan-400 text-[15px] transition-colors font-bold flex items-center justify-center lg:justify-start gap-2 group">{item.label} <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" /></Link></li>
+                                            <li key={item.label}><Link to={item.path} className="text-slate-400 hover:text-cyan-400 text-[14px] md:text-[15px] transition-colors font-bold flex items-center justify-start gap-2 group">{item.label} <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" /></Link></li>
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="space-y-8">
-                                    <h4 className="text-white font-black uppercase tracking-[0.2em] text-[13px]">MusB Group</h4>
+                                <div className="space-y-6 md:space-y-8">
+                                    <h4 className="text-white font-black uppercase tracking-[0.2em] text-[12px] md:text-[13px]">MusB Group</h4>
                                     <ul className="space-y-4">
                                         {[
                                             { label: 'About Us', path: '/about' },
@@ -350,7 +350,7 @@ export default function Layout({ children }: LayoutProps) {
                                             { label: 'Careers', path: '/careers' },
                                             { label: 'Contact Us', path: '/contact' }
                                         ].map((item) => (
-                                            <li key={item.label}><Link to={item.path} className="text-slate-400 hover:text-cyan-400 text-[15px] transition-colors font-bold flex items-center justify-center lg:justify-start gap-2 group">{item.label} <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" /></Link></li>
+                                            <li key={item.label}><Link to={item.path} className="text-slate-400 hover:text-cyan-400 text-[14px] md:text-[15px] transition-colors font-bold flex items-center justify-start gap-2 group">{item.label} <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" /></Link></li>
                                         ))}
                                     </ul>
                                 </div>
@@ -392,22 +392,22 @@ export default function Layout({ children }: LayoutProps) {
                             </div>
                         </div>
 
-                        <div className="lg:col-span-4 space-y-12">
-                            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 space-y-6 relative overflow-hidden group">
+                        <div className="md:col-span-2 lg:col-span-4 space-y-12">
+                            <div className="p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 space-y-6 relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-400/5 blur-2xl"></div>
-                                <h4 className="text-white font-black uppercase tracking-[0.2em] text-[13px]">Get Our Newsletters</h4>
+                                <h4 className="text-white font-black uppercase tracking-[0.2em] text-[12px] md:text-[13px]">Get Our Newsletters</h4>
                                 <div className="space-y-4">
                                     <p className="text-slate-400 text-sm font-medium">Which Best Describes You?</p>
-                                    <div className="flex gap-2">
+                                    <div className="flex flex-col sm:flex-row gap-2">
                                         <button
                                             onClick={() => setUserType('Business')}
-                                            className={`flex-1 px-4 py-2 rounded-lg text-[12px] font-black uppercase tracking-widest transition-all ${userType === 'Business' ? 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-400' : 'bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'}`}
+                                            className={`flex-1 px-4 py-2 rounded-lg text-[11px] md:text-[12px] font-black uppercase tracking-widest transition-all ${userType === 'Business' ? 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-400' : 'bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'}`}
                                         >
                                             Business
                                         </button>
                                         <button
                                             onClick={() => setUserType('Individual')}
-                                            className={`flex-1 px-4 py-2 rounded-lg text-[12px] font-black uppercase tracking-widest transition-all ${userType === 'Individual' ? 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-400' : 'bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'}`}
+                                            className={`flex-1 px-4 py-2 rounded-lg text-[11px] md:text-[12px] font-black uppercase tracking-widest transition-all ${userType === 'Individual' ? 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-400' : 'bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'}`}
                                         >
                                             Individual
                                         </button>

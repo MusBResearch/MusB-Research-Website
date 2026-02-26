@@ -61,6 +61,9 @@ export interface Study {
     title: string;
     condition: Condition;
     duration: string;
+    compensation_range?: string;
+    is_paid?: boolean;
+    is_free_testing?: boolean;
 }
 
 export interface CertificationItem {

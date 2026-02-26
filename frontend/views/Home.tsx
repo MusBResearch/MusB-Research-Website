@@ -83,7 +83,7 @@ export default function Home() {
     }, [activeSlides.length]); // Reset timer if slides count changes
 
     return (
-        <div className="min-h-screen font-sans text-slate-200 relative overflow-hidden">
+        <div className="min-h-screen font-sans text-slate-200 relative overflow-x-hidden">
             {/* Atmospheric Background Layers */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-blue-600/10 blur-[120px] rounded-full"></div>
@@ -93,7 +93,7 @@ export default function Home() {
             </div>
 
             {/* Slider Container */}
-            <div className="relative h-[95vh] min-h-[900px] w-full flex items-center overflow-hidden bg-transparent z-10">
+            <div className="relative h-auto md:h-[95vh] min-h-[600px] md:min-h-[800px] w-full flex items-center overflow-hidden bg-transparent z-10">
                 {/* Global Background Effect */}
                 <div className="absolute inset-0 z-0">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)]"></div>
@@ -119,19 +119,19 @@ export default function Home() {
                                         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/80"></div>
                                     </div>
 
-                                    <div className={`relative z-10 h-full max-w-[1800px] mx-auto px-6 md:px-12 w-full flex flex-col items-center justify-center pt-32 transform transition-all duration-1000 ${isActive ? 'scale-100 translate-y-0' : 'scale-95 translate-y-12'}`}>
+                                    <div className={`relative z-10 h-full max-w-[1800px] mx-auto px-6 md:px-12 w-full flex flex-col items-center justify-center pt-24 md:pt-32 transform transition-all duration-1000 ${isActive ? 'scale-100 translate-y-0' : 'scale-95 translate-y-12'}`}>
                                         {/* Content (Centered) */}
                                         <div className="space-y-12 flex flex-col items-center text-center">
                                             <div className="space-y-8 max-w-6xl">
-                                                <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] animate-fade-in-up whitespace-pre-line">
+                                                <h1 className="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-white leading-[1.05] tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] animate-fade-in-up whitespace-pre-line px-4">
                                                     {slide.headline}
                                                 </h1>
-                                                <div className="flex justify-center w-full">
+                                                <div className="flex justify-center w-full px-4">
                                                     <ul className="list-none m-0 p-0 text-left animate-fade-in-up stagger-1">
                                                         {slide.subtext.map((line: string, i: number) => (
                                                             <li key={i} className="flex items-start justify-start gap-4 group mb-3 last:mb-0">
-                                                                <div className="w-2 h-2 rounded-full bg-cyan-400 shrink-0 group-hover:scale-150 transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,1)] mt-2.5"></div>
-                                                                <p className="text-slate-100 text-lg md:text-xl font-medium leading-tight max-w-3xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors m-0">
+                                                                <div className="w-2 h-2 rounded-full bg-cyan-400 shrink-0 group-hover:scale-150 transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,1)] mt-2"></div>
+                                                                <p className="text-slate-100 text-base md:text-lg lg:text-xl font-medium leading-tight max-w-3xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors m-0">
                                                                     {line}
                                                                 </p>
                                                             </li>
@@ -140,17 +140,17 @@ export default function Home() {
                                                 </div>
                                             </div>
 
-                                            <div className="flex flex-wrap items-center justify-center gap-6 animate-fade-in-up stagger-2">
+                                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 animate-fade-in-up stagger-2 w-full px-6">
                                                 <Link
                                                     to="/trials"
-                                                    className="bg-cyan-500 text-slate-900 px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-2 transition-all shadow-[0_20px_50px_-10px_rgba(6,182,212,0.6)] flex items-center gap-3 group"
+                                                    className="w-full sm:w-auto bg-cyan-500 text-slate-900 px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-2 transition-all shadow-[0_20px_50px_-10px_rgba(6,182,212,0.6)] flex items-center justify-center gap-3 group"
                                                 >
                                                     {slide.primaryCTA}
                                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                                                 </Link>
                                                 <Link
                                                     to="/contact"
-                                                    className="bg-white/10 border border-white/20 text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white/20 hover:-translate-y-2 transition-all backdrop-blur-xl group overflow-hidden relative"
+                                                    className="w-full sm:w-auto bg-white/10 border border-white/20 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] hover:bg-white/20 hover:-translate-y-2 transition-all backdrop-blur-xl group overflow-hidden relative flex items-center justify-center"
                                                 >
                                                     <span className="relative z-10">{slide.secondaryCTA}</span>
                                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
@@ -164,8 +164,9 @@ export default function Home() {
                     </div>
 
                     {/* Slider Navigation */}
-                    <button onClick={prevSlide} className="absolute left-8 top-[60%] -translate-y-1/2 z-30 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-white hover:bg-cyan-500 hover:text-slate-900 transition-all shadow-2xl group"><ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" /></button>
-                    <button onClick={nextSlide} className="absolute right-8 top-[60%] -translate-y-1/2 z-30 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-white hover:bg-cyan-500 hover:text-slate-900 transition-all shadow-2xl group"><ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" /></button>
+                    {/* Slider Navigation */}
+                    <button onClick={prevSlide} className="hidden md:flex absolute left-8 top-[60%] -translate-y-1/2 z-30 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-white hover:bg-cyan-500 hover:text-slate-900 transition-all shadow-2xl group"><ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" /></button>
+                    <button onClick={nextSlide} className="hidden md:flex absolute right-8 top-[60%] -translate-y-1/2 z-30 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-white hover:bg-cyan-500 hover:text-slate-900 transition-all shadow-2xl group"><ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" /></button>
 
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-6">
                         <div className="flex gap-4 p-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
@@ -191,16 +192,16 @@ export default function Home() {
                 <div className="py-12 relative z-10" id="services">
                     <div className="max-w-[1700px] mx-auto px-6 md:px-12">
                         <div className="text-center space-y-8 mb-24 max-w-7xl mx-auto">
-                            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
                                 Three Ways MusB™ Research Supports Your Program
                             </h2>
-                            <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed">
-                                Whether you need discovery research, laboratory testing, <br />
+                            <p className="text-lg md:text-xl lg:text-2xl text-slate-400 font-medium leading-relaxed">
+                                Whether you need discovery research, laboratory testing, <br className="hidden md:block" />
                                 or long-term biospecimen management, MusB™ Research offers flexible, integrated support tailored to your goals.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                             {/* 1. Research & Innovation */}
                             <div className="group relative bg-white/5 backdrop-blur-xl rounded-[4rem] p-8 md:p-12 border border-white/5 hover:bg-white/10 hover:border-cyan-500/30 transition-all duration-700 flex flex-col">
                                 <div className="w-20 h-20 mb-10 rounded-3xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-900 transition-all duration-500 shadow-xl">
@@ -337,23 +338,23 @@ export default function Home() {
                                 <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 font-bold text-xs tracking-widest uppercase">
                                     <Microscope className="w-4 h-4" /> Scientist-Led Growth
                                 </div>
-                                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] uppercase">
+                                <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] uppercase">
                                     Your Science Partner for <span className="text-cyan-400">Evidence-Driven</span> Growth
                                 </h2>
-                                <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl">
+                                <p className="text-lg md:text-xl lg:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl text-center lg:text-left">
                                     At MusB™ Research, we don’t just run studies—we help you understand your product’s strengths, limitations, and real-world impact so you can make the best scientific, business, and health decisions.
                                 </p>
-                                <div className="flex flex-wrap gap-6 pt-4">
+                                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6 pt-4">
                                     <Link
                                         to="/contact"
-                                        className="grow-0 bg-cyan-500 text-slate-900 px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:-translate-y-1 transition-all shadow-xl shadow-cyan-500/20 flex items-center gap-2"
+                                        className="w-full sm:w-auto bg-cyan-500 text-slate-900 px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest hover:bg-white hover:-translate-y-1 transition-all shadow-xl shadow-cyan-500/20 flex items-center justify-center gap-2"
                                     >
                                         Start the Conversation
                                         <ArrowRight className="w-5 h-5" />
                                     </Link>
                                     <Link
                                         to="/capabilities"
-                                        className="grow-0 bg-white/5 text-white border border-white/10 px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/10 hover:-translate-y-1 transition-all flex items-center gap-2"
+                                        className="w-full sm:w-auto bg-white/5 text-white border border-white/10 px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest hover:bg-white/10 hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
                                     >
                                         Explore Our Capabilities
                                     </Link>

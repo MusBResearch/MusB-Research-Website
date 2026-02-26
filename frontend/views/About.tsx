@@ -35,7 +35,7 @@ export default function About() {
     ];
 
     return (
-        <div className="min-h-screen font-sans text-slate-200 relative overflow-hidden">
+        <div className="min-h-screen font-sans text-slate-200 relative overflow-x-hidden">
             {/* Background */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-purple-600/10 blur-[120px] rounded-full"></div>
@@ -50,7 +50,7 @@ export default function About() {
                         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-purple-400/10 border border-purple-400/20 text-purple-400 font-bold text-xs tracking-widest uppercase mb-8">
                             <Building2 className="w-4 h-4" /> About MusB™ Research
                         </div>
-                        <h1 className="text-4xl md:text-7xl font-black text-white tracking-tight leading-tight mb-6">
+                        <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-tight mb-6">
                             Learn More <span className="text-purple-400">About Us</span>
                         </h1>
                         <p className="text-xl text-slate-400 font-medium max-w-3xl mx-auto">
