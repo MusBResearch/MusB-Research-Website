@@ -763,7 +763,9 @@ class FacilityModule(models.Model):
     one_line_summary = models.CharField(max_length=300)
     description = models.TextField(help_text='Main accordion text')
     micro_bullets = models.JSONField(default=list, help_text='List of strings')
+    icon_name = models.CharField(max_length=50, default='Microscope', help_text='Lucide React icon name')
     image = models.ImageField(upload_to='facilities/', blank=True, null=True)
+    image_alt = models.CharField(max_length=200, blank=True, help_text='Alt text for 16:9 image')
     badge_label = models.CharField(max_length=100, blank=True)
     layout = models.CharField(max_length=20, choices=LAYOUT_CHOICES, default='TextLeft')
     display_order = models.IntegerField(default=0)
@@ -800,3 +802,30 @@ class SuccessSignal(models.Model):
 
     class Meta:
         ordering = ['display_order']
+
+    def __str__(self):
+        return self.title
+
+
+class FacilityInquiry(models.Model):
+    """Lead forms for Facilities page routing"""
+    FORM_TYPES = [
+        ('Research & Innovation', 'Research & Innovation'),
+        ('Central Laboratory Services', 'Central Laboratory Services'),
+        ('Biorepository', 'Biorepository'),
+        ('Not sure (Help me choose)', 'Not sure (Help me choose)'),
+    ]
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    company = models.CharField(max_length=200, blank=True)
+    interest = models.CharField(max_length=100, choices=FORM_TYPES)
+    stage = models.CharField(max_length=100)
+    routed_to_email = models.EmailField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Facility Inquiry"
+        verbose_name_plural = "Facility Inquiries"
+
+    def __str__(self):
+        return f"{self.name} - {self.interest} ({self.stage})"

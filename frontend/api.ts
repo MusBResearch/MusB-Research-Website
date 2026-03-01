@@ -128,3 +128,8 @@ export const subscribeNewsletter = (email: string) =>
 // ============================================================
 
 export const fetchFacilitiesPageData = () => apiFetch<any>('/api/facilities-page/');
+export const submitFacilityInquiry = (data: Record<string, any>) =>
+    apiFetch<any>('/api/facilities-inquiry/', {
+        method: 'POST',
+        body: JSON.stringify(data),
+    });

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight, Brain, FlaskConical, Activity, TestTube, Microscope, Leaf, Flower, ShieldCheck, Zap, Beaker, BarChart, FileText, Stethoscope, Database, Smartphone, Box, CheckCircle2, Building2, Globe } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Brain, FlaskConical, Activity, TestTube, Microscope, Leaf, Flower, ShieldCheck, Zap, Beaker, BarChart, FileText, Stethoscope, Database, Smartphone, Box, CheckCircle2, Building2, Globe, HeartPulse } from 'lucide-react';
 import StudyFilterSection from '@/components/StudyFilterSection';
 import { fetchCapabilities, fetchFacilities, fetchCertifications, fetchPartners, fetchHomeSettings } from '@/api';
 
 const slides = [
     {
         id: 1,
-        headline: "Your Trusted Partner\nin R&D Excellence",
+        headline: "Your Trusted Partner in R&D Excellence",
         subtext: [
-            "Comprehensive solutions from early discovery to human clinical studies",
-            "Deep expertise in microbiome, biotics, aging, and metabolic health",
-            "Led by world-class scientists delivering rigorous, real-world evidence"
+            "Comprehensive solutions from early screening to clinical studies",
+            "Led by world-class scientists and experienced industry professionals",
+            "Community-based clinical trials and translational research under one umbrella"
         ],
         primaryCTA: "Find a Clinical Study",
         secondaryCTA: "Work With Us (Sponsors & Partners)",
@@ -122,8 +122,8 @@ export default function Home() {
                                     <div className={`relative z-10 h-full max-w-[1800px] mx-auto px-6 md:px-12 w-full flex flex-col items-center justify-center pt-24 md:pt-32 transform transition-all duration-1000 ${isActive ? 'scale-100 translate-y-0' : 'scale-95 translate-y-12'}`}>
                                         {/* Content (Centered) */}
                                         <div className="space-y-12 flex flex-col items-center text-center">
-                                            <div className="space-y-8 max-w-6xl">
-                                                <h1 className="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-white leading-[1.05] tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] animate-fade-in-up whitespace-pre-line px-4">
+                                            <div className="space-y-8 max-w-5xl relative">
+                                                <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] animate-fade-in-up whitespace-pre-line px-4">
                                                     {slide.headline}
                                                 </h1>
                                                 <div className="flex justify-center w-full px-4">
@@ -131,7 +131,7 @@ export default function Home() {
                                                         {slide.subtext.map((line: string, i: number) => (
                                                             <li key={i} className="flex items-start justify-start gap-4 group mb-3 last:mb-0">
                                                                 <div className="w-2 h-2 rounded-full bg-cyan-400 shrink-0 group-hover:scale-150 transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,1)] mt-2"></div>
-                                                                <p className="text-slate-100 text-base md:text-lg lg:text-xl font-medium leading-tight max-w-3xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors m-0">
+                                                                <p className="text-slate-100 text-sm md:text-base lg:text-lg font-medium leading-tight max-w-3xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors m-0">
                                                                     {line}
                                                                 </p>
                                                             </li>
@@ -143,19 +143,25 @@ export default function Home() {
                                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 animate-fade-in-up stagger-2 w-full px-6">
                                                 <Link
                                                     to="/trials"
-                                                    className="w-full sm:w-auto bg-cyan-500 text-slate-900 px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-2 transition-all shadow-[0_20px_50px_-10px_rgba(6,182,212,0.6)] flex items-center justify-center gap-3 group"
+                                                    className="w-full sm:w-auto bg-cyan-500 text-slate-900 px-6 md:px-8 py-3 md:py-4 rounded-2xl font-black text-[10px] md:text-xs uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-2 transition-all shadow-[0_20px_50px_-10px_rgba(6,182,212,0.6)] flex items-center justify-center gap-3 group"
                                                 >
                                                     {slide.primaryCTA}
                                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                                                 </Link>
                                                 <Link
                                                     to="/contact"
-                                                    className="w-full sm:w-auto bg-white/10 border border-white/20 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] hover:bg-white/20 hover:-translate-y-2 transition-all backdrop-blur-xl group overflow-hidden relative flex items-center justify-center"
+                                                    className="w-full sm:w-auto bg-white/10 border border-white/20 text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl font-black text-[10px] md:text-xs uppercase tracking-[0.2em] hover:bg-white/20 hover:-translate-y-2 transition-all backdrop-blur-xl group overflow-hidden relative flex items-center justify-center"
                                                 >
                                                     <span className="relative z-10">{slide.secondaryCTA}</span>
                                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
                                                 </Link>
                                             </div>
+                                        </div>
+                                        {/* Bench to Bedside Overlay - Moved further right per request */}
+                                        <div className="hidden lg:block absolute top-[55%] right-1 -translate-y-1/2 origin-center rotate-90">
+                                            <span className="text-[13px] font-black uppercase tracking-[0.6em] text-red-700 whitespace-nowrap">
+                                                Bench to Bedside. Discovery to Validation.
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -332,18 +338,31 @@ export default function Home() {
                         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-indigo-500/10 blur-[150px] rounded-full" style={{ animationDelay: '-2s' }}></div>
                     </div>
 
-                    <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                    <div className="max-w-[1700px] mx-auto px-6 md:px-12 relative z-10">
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-8 animate-fade-in-up">
                                 <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 font-bold text-xs tracking-widest uppercase">
                                     <Microscope className="w-4 h-4" /> Scientist-Led Growth
                                 </div>
                                 <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] uppercase">
-                                    Your Science Partner for <span className="text-cyan-400">Evidence-Driven</span> Growth
+                                    WHY CHOOSE <span className="text-cyan-400">MUSB™ RESEARCH</span>
                                 </h2>
-                                <p className="text-lg md:text-xl lg:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl text-center lg:text-left">
-                                    At MusB™ Research, we don’t just run studies—we help you understand your product’s strengths, limitations, and real-world impact so you can make the best scientific, business, and health decisions.
-                                </p>
+                                <div className="space-y-6 pt-4">
+                                    {[
+                                        'Multidisciplinary clinical and preclinical expertise',
+                                        'Academia-affiliated scientists and clinicians',
+                                        'Integrated research, lab, and biorepository services',
+                                        'End-to-end support from discovery to validation',
+                                        'Ethical, community-focused research practices'
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex items-center gap-4 group">
+                                            <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-900 transition-all duration-300">
+                                                <CheckCircle2 className="w-5 h-5" />
+                                            </div>
+                                            <span className="text-lg text-slate-200 font-bold group-hover:text-white transition-colors">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
                                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6 pt-4">
                                     <Link
                                         to="/contact"
@@ -402,8 +421,8 @@ export default function Home() {
                             <div className="p-6 md:p-16 rounded-[4.5rem] bg-transparent border-none relative overflow-hidden group/container">
                                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/5 blur-[120px] rounded-full"></div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-                                    {capabilities.slice(0, 8).map((cap: any, idx: number) => {
+                                <div className="flex flex-wrap justify-center gap-6 relative z-10">
+                                    {capabilities.map((cap: any, idx: number) => {
                                         const IconComponent = {
                                             activity: Activity,
                                             'test-tube': TestTube,
@@ -414,6 +433,7 @@ export default function Home() {
                                             'shield-check': ShieldCheck,
                                             zap: Zap,
                                             beaker: Beaker,
+                                            'heart-pulse': HeartPulse,
                                             'bar-chart': BarChart,
                                             'file-text': FileText
                                         }[cap.icon as string] || Globe;
@@ -421,7 +441,7 @@ export default function Home() {
                                         return (
                                             <div
                                                 key={cap.id}
-                                                className={`p-6 md:p-10 rounded-[2.5rem] bg-slate-950/50 border border-white/5 hover:bg-slate-900 hover:border-cyan-500/30 transition-all duration-500 group animate-fade-in-up stagger-${(idx % 4) + 1} flex flex-col items-start gap-6 shadow-2xl relative overflow-hidden`}
+                                                className={`p-6 md:p-10 rounded-[2.5rem] bg-slate-950/50 border border-white/5 hover:bg-slate-900 hover:border-cyan-500/30 transition-all duration-500 group animate-fade-in-up flex flex-col items-start gap-6 shadow-2xl relative overflow-hidden w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(25%-1.5rem)]`}
                                             >
                                                 <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                                 <div className="w-14 h-14 rounded-2xl bg-cyan-400 flex items-center justify-center text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.4)] group-hover:scale-110 transition-transform duration-500 relative z-10">
@@ -449,7 +469,7 @@ export default function Home() {
                             <div className="grid lg:grid-cols-2 gap-32 items-center">
                                 <div className="space-y-16">
                                     <div className="space-y-8">
-                                        <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">Facilities & <br />Infrastructure</h2>
+                                        <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">Facilities & Infrastructure</h2>
                                         <p className="text-xl text-slate-400 font-medium leading-relaxed">
                                             Purpose-built facilities designed to support high-quality research, testing, and participant engagement.
                                         </p>
@@ -462,21 +482,22 @@ export default function Home() {
                                                     {fac.name.includes('Site') ? <Building2 className="w-5 h-5" /> :
                                                         fac.name.includes('Clinics') ? <Stethoscope className="w-5 h-5" /> :
                                                             fac.name.includes('Biorepository') ? <Database className="w-5 h-5" /> :
-                                                                fac.name.includes('IT') ? <Smartphone className="w-5 h-5" /> :
-                                                                    fac.name.includes('Mobile') ? <Smartphone className="w-5 h-5" /> :
-                                                                        <Box className="w-5 h-5" />}
+                                                                fac.name.includes('Sample') ? <FlaskConical className="w-5 h-5" /> :
+                                                                    fac.name.includes('Data') ? <ShieldCheck className="w-5 h-5" /> :
+                                                                        fac.name.includes('Mobile') ? <Smartphone className="w-5 h-5" /> :
+                                                                            <Activity className="w-5 h-5" />}
                                                 </div>
                                                 <div className="space-y-1">
-                                                    <h4 className="text-white font-bold group-hover:text-cyan-400 transition-colors">{fac.name}</h4>
-                                                    <p className="text-slate-400 text-xs leading-relaxed">{fac.description}</p>
+                                                    <h4 className="text-white font-bold group-hover:text-cyan-400 transition-colors uppercase text-sm tracking-wide">{fac.name}</h4>
+                                                    <p className="text-slate-400 text-xs leading-relaxed font-medium">{fac.description}</p>
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
 
                                     <div className="flex gap-4 pt-4">
-                                        <Link to="/facilities" className="bg-white/5 text-white px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white/10 transition-all border border-white/10">View Our Facilities</Link>
-                                        <Link to="/contact" className="bg-cyan-400 text-slate-900 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white transition-all">Start the Conversation</Link>
+                                        <Link to="/facilities" className="bg-white/5 text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all border border-white/10">View Our Facilities</Link>
+                                        <Link to="/contact" className="bg-cyan-400 text-slate-900 px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-white transition-all">Start the Conversation</Link>
                                     </div>
                                 </div>
 
@@ -499,49 +520,41 @@ export default function Home() {
             {/* Section 06: Certifications & Compliance */}
             {
                 (homeSettings?.show_certifications_section !== false) && (
-                    <div className="py-20 relative z-10 bg-slate-900/20 border-y border-white/5" id="certifications">
-                        <div className="max-w-[1700px] mx-auto px-6 md:px-12">
-                            <div className="text-center space-y-6 mb-24">
-                                <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight uppercase">Certifications & Compliance</h2>
+                    <div className="py-24 relative z-10 bg-slate-900/40 border-y border-white/5 overflow-hidden" id="certifications">
+                        <div className="max-w-[1700px] mx-auto px-6 md:px-12 mb-20">
+                            <div className="text-center space-y-6 animate-fade-in-up">
+                                <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight uppercase">Certifications & <span className="text-cyan-400">Compliance</span></h2>
                                 <div className="h-1.5 w-24 bg-cyan-500 mx-auto rounded-full"></div>
+                                <p className="text-lg text-slate-400 font-medium leading-relaxed">
+                                    IRB-approved studies • GCP-trained staff • HIPAA-compliant systems <br />
+                                    CLIA/COLA laboratory partnerships • SOP-driven operations <br />
+                                    ISO and GLP-aligned practices
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Left to Right Scrolling Marquee (Reverse of Partners) */}
+                        <div className="relative flex overflow-x-hidden mask-fade-edges py-12">
+                            <div className="animate-marquee-reverse whitespace-nowrap flex items-center gap-24 pr-24">
+                                {[...certifications, ...certifications].map((cert: any, idx: number) => (
+                                    <div key={`${cert.id}-${idx}`} className="flex flex-col items-center gap-4 group min-w-[200px]">
+                                        <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-900 group-hover:scale-110 transition-all duration-500 shadow-xl">
+                                            <ShieldCheck className="w-10 h-10" />
+                                        </div>
+                                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-white transition-colors text-center px-2 leading-tight">{cert.label}</span>
+                                    </div>
+                                ))}
                             </div>
 
-                            <div className="relative flex overflow-x-hidden mask-fade-edges py-12">
-                                <div className="animate-marquee whitespace-nowrap flex items-center gap-24 pr-24">
-                                    {[...certifications, ...certifications].map((cert: any, idx: number) => (
-                                        <div key={`${cert.id}-${idx}`} className="flex flex-col items-center gap-6 group min-w-[280px]">
-                                            <div className={`w-36 h-36 rounded-full flex items-center justify-center transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.05)] relative overflow-hidden ${cert.imageUrl ? 'bg-white' : 'bg-white/5 border border-white/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-900'}`}>
-                                                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                                                {cert.imageUrl ? (
-                                                    <div className="w-full h-full flex items-center justify-center">
-                                                        <img src={cert.imageUrl} alt={cert.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                                    </div>
-                                                ) : (
-                                                    <CheckCircle2 className="w-16 h-16" />
-                                                )}
-                                            </div>
-                                            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-slate-400 group-hover:text-cyan-400 transition-colors text-center px-4 leading-relaxed">{cert.label}</span>
+                            <div className="absolute top-0 py-12 animate-marquee2-reverse whitespace-nowrap flex items-center gap-24 pr-24">
+                                {[...certifications, ...certifications].map((cert: any, idx: number) => (
+                                    <div key={`${cert.id}-repeat-${idx}`} className="flex flex-col items-center gap-4 group min-w-[200px]">
+                                        <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-900 group-hover:scale-110 transition-all duration-500 shadow-xl">
+                                            <ShieldCheck className="w-10 h-10" />
                                         </div>
-                                    ))}
-                                </div>
-
-                                <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap flex items-center gap-24 pr-24">
-                                    {[...certifications, ...certifications].map((cert: any, idx: number) => (
-                                        <div key={`${cert.id}-repeat-${idx}`} className="flex flex-col items-center gap-6 group min-w-[280px]">
-                                            <div className={`w-36 h-36 rounded-full flex items-center justify-center transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.05)] relative overflow-hidden ${cert.imageUrl ? 'bg-white' : 'bg-white/5 border border-white/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-900'}`}>
-                                                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                                                {cert.imageUrl ? (
-                                                    <div className="w-full h-full flex items-center justify-center">
-                                                        <img src={cert.imageUrl} alt={cert.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                                    </div>
-                                                ) : (
-                                                    <CheckCircle2 className="w-16 h-16" />
-                                                )}
-                                            </div>
-                                            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-slate-400 group-hover:text-cyan-400 transition-colors text-center px-4 leading-relaxed">{cert.label}</span>
-                                        </div>
-                                    ))}
-                                </div>
+                                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-white transition-colors text-center px-2 leading-tight">{cert.label}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -551,33 +564,34 @@ export default function Home() {
             {/* Section 07: Collaborations & Partners */}
             {
                 (homeSettings?.show_partners_section !== false) && (
-                    <div className="py-16 relative z-10 overflow-hidden" id="partners">
-                        <div className="max-w-[1700px] mx-auto px-6 md:px-12 mb-24">
-                            <div className="text-center space-y-6">
-                                <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">Collaborations & Partners</h2>
-                                <p className="text-xl text-slate-400 max-w-2xl mx-auto">Logos displayed in a subtle, continuous scrolling marquee to highlight trusted academic, industry, and community partnerships.</p>
+                    <div className="py-24 relative z-10 overflow-hidden" id="partners">
+                        <div className="max-w-[1700px] mx-auto px-6 md:px-12 mb-20">
+                            <div className="text-center space-y-4 animate-fade-in-up">
+                                <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-tight uppercase">Collaborations & Partners</h2>
+                                <div className="h-1 w-32 bg-indigo-500 mx-auto rounded-full"></div>
                             </div>
                         </div>
 
+                        {/* Right to Left Scrolling Marquee */}
                         <div className="relative flex overflow-x-hidden mask-fade-edges py-12">
-                            <div className="animate-marquee-reverse whitespace-nowrap flex items-center gap-24 pr-24">
+                            <div className="animate-marquee whitespace-nowrap flex items-center gap-32 pr-32">
                                 {[...partners, ...partners].map((partner: any, i: number) => (
-                                    <div key={i} className="flex items-center gap-6 opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-700 cursor-default group">
-                                        <div className="w-10 h-10 rounded-xl bg-cyan-400/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-400 group-hover:text-slate-900 transition-all duration-500">
-                                            <FlaskConical className="w-5 h-5" />
+                                    <div key={i} className="flex items-center gap-4 opacity-30 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-700 cursor-default group scale-90 hover:scale-100">
+                                        <div className="w-12 h-12 rounded-xl bg-indigo-400/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-400 group-hover:text-slate-900 transition-all duration-500">
+                                            <Globe className="w-6 h-6" />
                                         </div>
-                                        <span className="text-4xl font-black text-white tracking-tighter uppercase">{partner.name}</span>
+                                        <span className="text-3xl md:text-4xl font-black text-white tracking-widest uppercase italic">{partner.name}</span>
                                     </div>
                                 ))}
                             </div>
 
-                            <div className="absolute top-0 py-12 animate-marquee2-reverse whitespace-nowrap flex items-center gap-24 pr-24">
+                            <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap flex items-center gap-32 pr-32">
                                 {[...partners, ...partners].map((partner: any, i: number) => (
-                                    <div key={i} className="flex items-center gap-6 opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-700 cursor-default group">
-                                        <div className="w-10 h-10 rounded-xl bg-cyan-400/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-400 group-hover:text-slate-900 transition-all duration-500">
-                                            <FlaskConical className="w-5 h-5" />
+                                    <div key={i} className="flex items-center gap-4 opacity-30 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-700 cursor-default group scale-90 hover:scale-100">
+                                        <div className="w-12 h-12 rounded-xl bg-indigo-400/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-400 group-hover:text-slate-900 transition-all duration-500">
+                                            <Globe className="w-6 h-6" />
                                         </div>
-                                        <span className="text-4xl font-black text-white tracking-tighter uppercase">{partner.name}</span>
+                                        <span className="text-3xl md:text-4xl font-black text-white tracking-widest uppercase italic">{partner.name}</span>
                                     </div>
                                 ))}
                             </div>
@@ -589,28 +603,26 @@ export default function Home() {
             {/* Section 08: Dual Call to Action */}
             {
                 (homeSettings?.show_final_cta !== false) && (
-                    <div className="py-20 relative z-10">
-                        <div className="max-w-[1700px] mx-auto px-6 md:px-12">
-                            <div className="grid md:grid-cols-2 gap-12">
-                                <div className="p-8 md:p-24 rounded-[4rem] bg-gradient-to-br from-cyan-500/10 via-slate-900/50 to-transparent border border-white/5 backdrop-blur-3xl space-y-12 group hover:border-cyan-500/30 transition-all duration-700 relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 blur-[80px] rounded-full group-hover:bg-cyan-500/10 transition-colors"></div>
-                                    <span className="text-cyan-400 font-black text-xs uppercase tracking-[0.5em] block animate-fade-in-up">Participants</span>
-                                    <div className="space-y-6 animate-fade-in-up stagger-1">
-                                        <h3 className="text-4xl md:text-5xl font-black text-white leading-[1.05] tracking-tighter">Interested in <br />a study?</h3>
-                                        <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed">Get paid. Get tested. <br />Contribute to breakthrough science.</p>
+                    <div className="py-12 relative z-10">
+                        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="p-8 md:p-14 rounded-[3rem] bg-gradient-to-br from-cyan-500/10 via-slate-900/50 to-transparent border border-white/5 backdrop-blur-3xl space-y-8 group hover:border-cyan-500/30 transition-all duration-700 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 blur-[80px] rounded-full group-hover:bg-cyan-500/10 transition-colors"></div>
+                                    <span className="text-cyan-400 font-black text-[10px] uppercase tracking-[0.5em] block animate-fade-in-up">Participants</span>
+                                    <div className="space-y-4 animate-fade-in-up stagger-1">
+                                        <h3 className="text-3xl md:text-4xl font-black text-white leading-[1.1] tracking-tighter">Interested in <br />a study?</h3>
+                                        <p className="text-lg md:text-xl text-slate-400 font-medium leading-relaxed">Get paid. Get tested. <br />Contribute to science.</p>
                                     </div>
-                                    <div className="flex flex-wrap gap-6 pt-6 animate-fade-in-up stagger-2">
-                                        <Link to="/trials" className="bg-cyan-500 text-slate-900 px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-2 transition-all shadow-xl">Join Research</Link>
-                                        <Link to="/contact" className="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white/10 hover:-translate-y-2 transition-all backdrop-blur-xl">Contact Us</Link>
+                                    <div className="flex flex-wrap gap-4 pt-4 animate-fade-in-up stagger-2">
+                                        <Link to="/trials" className="bg-cyan-500 text-slate-900 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-2 transition-all shadow-xl">Join Research</Link>
                                     </div>
                                 </div>
 
-                                <div className="p-8 md:p-24 rounded-[4rem] bg-gradient-to-br from-indigo-500/10 via-slate-900/50 to-transparent border border-white/5 backdrop-blur-3xl space-y-12 group hover:border-indigo-500/30 transition-all duration-700 relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 blur-[80px] rounded-full group-hover:bg-indigo-500/10 transition-colors"></div>
-                                    <span className="text-indigo-400 font-black text-xs uppercase tracking-[0.5em] block animate-fade-in-up">Sponsors</span>
-                                    <div className="space-y-6 animate-fade-in-up stagger-1">
-                                        <h3 className="text-4xl md:text-5xl font-black text-white leading-[1.05] tracking-tighter">Need expert <br />research?</h3>
-                                        <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed">Need high-quality research, testing, or biorepository support?</p>
+                                <div className="p-8 md:p-14 rounded-[3rem] bg-gradient-to-br from-indigo-500/10 via-slate-900/50 to-transparent border border-white/5 backdrop-blur-3xl space-y-8 group hover:border-indigo-500/30 transition-all duration-700 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/5 blur-[80px] rounded-full group-hover:bg-indigo-500/10 transition-colors"></div>
+                                    <span className="text-indigo-400 font-black text-[10px] uppercase tracking-[0.5em] block animate-fade-in-up">Sponsors</span>
+                                    <div className="space-y-4 animate-fade-in-up stagger-1">
+                                        <h3 className="text-3xl md:text-4xl font-black text-white leading-[1.1] tracking-tighter">Need high-quality research, <br />testing, or biorepository support?</h3>
                                     </div>
                                     <div className="pt-6 animate-fade-in-up stagger-2">
                                         <Link to="/contact" className="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-cyan-500 hover:-translate-y-2 transition-all shadow-xl inline-block">Start a Project</Link>

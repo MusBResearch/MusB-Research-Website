@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ChevronDown, ArrowRight, Clock, DollarSign, ShieldCheck } from 'lucide-react';
+import { Search, ChevronDown, ArrowRight, Clock, ShieldCheck, Activity } from 'lucide-react';
 import { Condition, Study } from '@/types';
 import { fetchStudies } from '@/api';
 
@@ -8,21 +8,26 @@ const conditions: Condition[] = ['Gut', 'Brain', 'Metabolic', 'Aging', 'Women’
 
 export default function StudyFilterSection() {
     const [selectedCondition, setSelectedCondition] = useState<Condition | 'All'>('All');
-    const [showPaidOnly, setShowPaidOnly] = useState(false);
-    const [showFreeTestingOnly, setShowFreeTestingOnly] = useState(false);
+    const [selectedType, setSelectedType] = useState<'All' | 'Paid Studies' | 'Free Testing'>('All');
     const [studies, setStudies] = useState<Study[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
         const condition = selectedCondition === 'All' ? undefined : selectedCondition;
-        fetchStudies(condition, 'Recruiting', showPaidOnly || undefined, showFreeTestingOnly || undefined)
+        fetchStudies(condition, 'Recruiting')
             .then(data => {
-                setStudies(data);
+                let filtered = data;
+                if (selectedType === 'Paid Studies') {
+                    filtered = data.filter(s => s.is_paid);
+                } else if (selectedType === 'Free Testing') {
+                    filtered = data.filter(s => s.is_free_testing);
+                }
+                setStudies(filtered);
                 setIsLoading(false);
             })
             .catch(() => setIsLoading(false));
-    }, [selectedCondition, showPaidOnly, showFreeTestingOnly]);
+    }, [selectedCondition, selectedType]);
 
     const displayedStudies = studies.slice(0, 3); // Display 3 trials as requested
 
@@ -58,27 +63,17 @@ export default function StudyFilterSection() {
                             <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none group-hover:text-cyan-400 transition-colors" />
                         </div>
 
-                        {/* Toggle Filters */}
-                        <div className="flex items-center gap-6 px-4">
-                            <label className="flex items-center gap-3 cursor-pointer group">
-                                <div
-                                    onClick={() => setShowPaidOnly(!showPaidOnly)}
-                                    className={`w-12 h-6 rounded-full p-1 transition-all duration-300 ${showPaidOnly ? 'bg-cyan-500' : 'bg-white/10'}`}
-                                >
-                                    <div className={`w-4 h-4 rounded-full bg-white transition-all duration-300 transform ${showPaidOnly ? 'translate-x-6' : 'translate-x-0'}`}></div>
-                                </div>
-                                <span className={`text-xs font-black uppercase tracking-widest transition-colors ${showPaidOnly ? 'text-cyan-400' : 'text-slate-500 group-hover:text-slate-300'}`}>Paid Studies</span>
-                            </label>
-
-                            <label className="flex items-center gap-3 cursor-pointer group">
-                                <div
-                                    onClick={() => setShowFreeTestingOnly(!showFreeTestingOnly)}
-                                    className={`w-12 h-6 rounded-full p-1 transition-all duration-300 ${showFreeTestingOnly ? 'bg-indigo-500' : 'bg-white/10'}`}
-                                >
-                                    <div className={`w-4 h-4 rounded-full bg-white transition-all duration-300 transform ${showFreeTestingOnly ? 'translate-x-6' : 'translate-x-0'}`}></div>
-                                </div>
-                                <span className={`text-xs font-black uppercase tracking-widest transition-colors ${showFreeTestingOnly ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300'}`}>Free Testing</span>
-                            </label>
+                        <div className="relative group">
+                            <select
+                                value={selectedType}
+                                onChange={(e) => setSelectedType(e.target.value as any)}
+                                className="appearance-none bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 pr-12 text-slate-200 font-bold focus:ring-2 focus:ring-cyan-500 cursor-pointer outline-none transition-all w-full md:w-64"
+                            >
+                                <option value="All" className="bg-slate-900 text-white">All Study Types</option>
+                                <option value="Paid Studies" className="bg-slate-900 text-white">Paid Studies</option>
+                                <option value="Free Testing" className="bg-slate-900 text-white">Free Testing</option>
+                            </select>
+                            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none group-hover:text-cyan-400 transition-colors" />
                         </div>
                     </div>
                 </div>
@@ -107,29 +102,32 @@ export default function StudyFilterSection() {
                                 </h3>
 
                                 <div className="space-y-6 w-full">
-                                    <div className="flex items-center gap-4 text-slate-400">
-                                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-cyan-400 transition-colors">
-                                            <DollarSign className="w-5 h-5" />
+                                    <div className="flex flex-col gap-4">
+                                        <div className="flex items-center gap-4 text-slate-400">
+                                            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-indigo-400 transition-colors">
+                                                <Clock className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Duration</div>
+                                                <div className="font-bold text-slate-200">{study.duration}</div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Compensation</div>
-                                            <div className="font-bold text-slate-200">{study.compensation_range || 'Expenses Reimbursed'}</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-center gap-4 text-slate-400">
-                                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-indigo-400 transition-colors">
-                                            <Clock className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Duration</div>
-                                            <div className="font-bold text-slate-200">{study.duration}</div>
-                                        </div>
+                                        {study.compensation_range && (
+                                            <div className="flex items-center gap-4 text-slate-400">
+                                                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-cyan-400 transition-colors">
+                                                    <Activity className="w-5 h-5" />
+                                                </div>
+                                                <div>
+                                                    <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Compensation</div>
+                                                    <div className="font-bold text-slate-200">{study.compensation_range}</div>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
 
                                 <Link
-                                    to={`/trials?id=${study.id}`}
+                                    to={`/trials?id=${study.id}#current-studies`}
                                     className="mt-4 w-full bg-cyan-500 text-slate-900 text-center py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white transition-all shadow-lg flex items-center justify-center gap-3 overflow-hidden transition-all group/btn shadow-cyan-500/20"
                                 >
                                     <span>Check Eligibility</span>

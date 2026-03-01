@@ -124,8 +124,7 @@ export default function Careers() {
                     <div className="space-y-8">
                         <span className="text-cyan-400 font-black text-xs uppercase tracking-[0.4em]">Join Our Mission</span>
                         <h1 className="text-6xl md:text-8xl font-black text-white tracking-tight leading-[0.9] uppercase italic">
-                            Build the <span className="text-cyan-400 italic">Future</span> <br />
-                            of Health Science
+                            Build the <span className="text-cyan-400 italic">Future</span> of Health Science
                         </h1>
                         <p className="text-xl text-slate-400 leading-relaxed font-medium max-w-xl">
                             Join a mission-driven research organization advancing microbiome, aging, metabolic, and clinical science.
@@ -373,7 +372,7 @@ export default function Careers() {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.1)_0%,transparent_50%)]"></div>
                     <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
                         <div className="text-center lg:text-left space-y-4">
-                            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none italic uppercase">Ready to make <br />an impact?</h2>
+                            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none italic uppercase">Ready to make an impact?</h2>
                             <p className="text-xl font-bold text-slate-400">Your journey in clinical breakthroughs starts here.</p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-6 w-full lg:w-auto">

@@ -40,7 +40,7 @@ const Capabilities: React.FC = () => {
           <div className="relative z-10">
             <span className="text-cyan-400 font-black text-xs uppercase tracking-[0.4em]">Expert Expertise</span>
             <h1 className="text-6xl md:text-8xl font-black text-white tracking-tight leading-[0.9] uppercase italic">
-              Our <br /><span className="text-cyan-400">Capabilities</span>
+              Our <span className="text-cyan-400">Capabilities</span>
             </h1>
             <p className="text-xl text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto">
               From preclinical modeling to high-complexity Phase IV human trials, MusB™ Research provides the expertise and infrastructure to accelerate your project.
@@ -97,7 +97,7 @@ const Capabilities: React.FC = () => {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="bg-slate-900/40 backdrop-blur-2xl rounded-[4rem] p-8 md:p-32 text-center space-y-12 border border-white/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] relative overflow-hidden">
             <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-cyan-400 via-indigo-500 to-purple-500"></div>
-            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">Ready to start your <br />research journey?</h2>
+            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">Ready to start your research journey?</h2>
             <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed">Our team is standing by to provide a custom project proposal tailored to your specific scientific and regulatory needs.</p>
             <a href="#/contact" className="inline-block px-12 py-6 bg-cyan-500 text-slate-900 font-black uppercase tracking-widest text-lg rounded-3xl shadow-xl shadow-cyan-500/20 hover:bg-white hover:scale-105 transition-all">
               Request a Consultation

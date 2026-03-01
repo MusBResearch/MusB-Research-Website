@@ -135,51 +135,73 @@ const Support: React.FC = () => {
 
             <div className="relative z-10 pt-40 pb-24 animate-in fade-in duration-1000">
                 {/* Section 1: Hero */}
-                <section className="relative overflow-hidden">
+                <section className="relative overflow-hidden min-h-[80vh] flex items-center">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)]"></div>
-                    <div className="max-w-[1700px] mx-auto px-4 md:px-12 relative z-10">
-                        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
-                            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-[1] uppercase italic">
-                                Your Trusted Partner <br />
-                                in <span className="text-cyan-400">R&D Excellence</span>
-                            </h1>
-                            <div className="flex justify-center w-full">
-                                <ul className="bg-slate-950/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5 list-none m-0">
-                                    <li className="flex items-start gap-4 mb-3 last:mb-0">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2.5 shadow-[0_0_10px_rgba(6,182,212,0.8)] shrink-0"></div>
-                                        <p className="text-xl text-slate-300 font-medium leading-tight m-0">Comprehensive solutions from early screening to clinical studies</p>
-                                    </li>
-                                    <li className="flex items-start gap-4 mb-3 last:mb-0">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2.5 shadow-[0_0_10px_rgba(6,182,212,0.8)] shrink-0"></div>
-                                        <p className="text-xl text-slate-300 font-medium leading-tight m-0">Deep expertise in microbiome, biotics, aging, and metabolic health</p>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2.5 shadow-[0_0_10px_rgba(6,182,212,0.8)] shrink-0"></div>
-                                        <p className="text-xl text-slate-300 font-medium leading-tight m-0">Led by world-class scientists and industry experts for top-tier results</p>
-                                    </li>
-                                </ul>
+                    <div className="max-w-[1700px] mx-auto px-4 md:px-12 relative z-10 w-full">
+                        <div className="grid lg:grid-cols-2 gap-16 items-center">
+                            {/* Left Content */}
+                            <div className="space-y-10 animate-fade-in-up text-left">
+                                <div className="space-y-6">
+                                    <h1 className="text-6xl md:text-8xl font-black text-white tracking-tight leading-[0.9] uppercase italic">
+                                        Your Trusted Partner in <span className="text-cyan-400">R&D Excellence</span>
+                                    </h1>
+                                    <div className="space-y-4">
+                                        {[
+                                            "Comprehensive solutions from early screening to clinical studies",
+                                            "Deep expertise in microbiome, biotics, aging, and metabolic health",
+                                            "Led by world-class scientists and industry experts for top-tier results"
+                                        ].map((text, i) => (
+                                            <div key={i} className="flex items-start gap-4">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2.5 shadow-[0_0_10px_rgba(6,182,212,0.8)] shrink-0"></div>
+                                                <p className="text-xl text-slate-300 font-medium leading-tight m-0">{text}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="flex flex-col sm:flex-row items-center justify-start gap-8 pt-6">
+                                    <button
+                                        onClick={() => setShowRouter(true)}
+                                        className="w-full sm:w-auto bg-cyan-500 text-slate-900 px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-1 transition-all shadow-2xl shadow-cyan-500/30 flex items-center justify-center gap-4 group"
+                                    >
+                                        Start the Conversation
+                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                    <Link to="/capabilities" className="text-white hover:text-cyan-400 font-black text-sm uppercase tracking-[0.2em] flex items-center gap-2 transition-colors group">
+                                        Explore Our Capabilities <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                </div>
                             </div>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-6">
-                                <button
-                                    onClick={() => setShowRouter(true)}
-                                    className="w-full sm:w-auto bg-cyan-500 text-slate-900 px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-1 transition-all shadow-2xl shadow-cyan-500/30 flex items-center justify-center gap-4 group"
-                                >
-                                    Start the Conversation
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                                <Link to="#pillars" className="text-white hover:text-cyan-400 font-black text-xs uppercase tracking-[0.2em] flex items-center gap-2 transition-colors">
-                                    Our Pillars <ArrowRight className="w-4 h-4" />
-                                </Link>
+
+                            {/* Right Visual */}
+                            <div className="relative group hidden lg:block">
+                                <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] transform transition-transform duration-700">
+                                    <img
+                                        src="/business_hero.png"
+                                        alt="Clinical Research Excellence"
+                                        className="w-full aspect-[4/5] object-cover brightness-90 transition-all duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                                    <div className="absolute bottom-12 left-12 right-12 space-y-2">
+                                        <p className="text-cyan-400 font-black text-xs uppercase tracking-[0.4em]">Integrated Research</p>
+                                        <h3 className="text-white text-3xl font-black uppercase tracking-tight leading-none italic">
+                                            Bench to Bedside.<br />
+                                            <span className="text-slate-400">Discovery to Validation.</span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                {/* Decorative Elements */}
+                                <div className="absolute -top-12 -right-12 w-64 h-64 bg-cyan-500/10 blur-[100px] rounded-full animate-pulse"></div>
+                                <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-indigo-600/10 blur-[80px] rounded-full delay-700 animate-pulse"></div>
                             </div>
                         </div>
                     </div>
                 </section>
                 {/* Section 2: 3 Ways We Support */}
-                <section className="py-24 relative z-10" id="pillars">
+                <section className="pt-24 pb-8 relative z-10" id="pillars">
                     <div className="max-w-[1700px] mx-auto px-4 md:px-12">
                         <div className="text-center space-y-8 mb-24 max-w-6xl mx-auto">
                             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight uppercase italic">
-                                Three Ways MusB™ Research <br />Supports Your Program
+                                Three Ways MusB™ Research Supports Your Program
                             </h2>
                             <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed">
                                 Choose the support you need—innovation, testing, or sample storage. We can also combine all three into one integrated workflow.
@@ -285,7 +307,7 @@ const Support: React.FC = () => {
                 </section>
 
                 {/* Section 3: Expertise */}
-                <section className="py-24 relative z-10 overflow-hidden">
+                <section className="pt-8 pb-24 relative z-10 overflow-hidden">
                     <div className="max-w-[1700px] mx-auto px-4 md:px-12">
                         <div className="text-center space-y-6 mb-24">
                             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight uppercase italic">Our Expertise Lies In</h2>
@@ -353,13 +375,32 @@ const Support: React.FC = () => {
 
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
-                                { title: "Micronutrient Efficacy Validation", tag: "Integrated", desc: "Demonstrated 30% improved bioavailability through our preclinical-to-clinical workflow." },
-                                { title: "Microbiome Signature Discovery", tag: "Research", desc: "Identified novel biomarkers for a biotech startup's lead ingredient validation." },
-                                { title: "Multi-Year Biospecimen Security", tag: "Biorepository", desc: "Managed 50,000+ aliquots with 100% chain-of-custody integrity for aging studies." }
+                                {
+                                    title: "Micronutrient Efficacy Validation",
+                                    tag: "Clinical",
+                                    desc: "Demonstrated 30% improved bioavailability through our preclinical-to-clinical workflow.",
+                                    img: "/story_micronutrient.png"
+                                },
+                                {
+                                    title: "Microbiome Signature Discovery",
+                                    tag: "Research",
+                                    desc: "Identified novel biomarkers for a biotech startup's lead ingredient validation.",
+                                    img: "/story_microbiome.png"
+                                },
+                                {
+                                    title: "Multi-Year Biospecimen Security",
+                                    tag: "Biorepository",
+                                    desc: "Managed 50,000+ aliquots with 100% chain-of-custody integrity for aging studies.",
+                                    img: "/story_biorepository.png"
+                                }
                             ].map((story, i) => (
                                 <div key={i} className="group relative bg-white/5 backdrop-blur-xl rounded-[3rem] overflow-hidden border border-white/5 hover:border-cyan-500/30 transition-all duration-500 flex flex-col">
-                                    <div className="aspect-video bg-slate-800/50 flex items-center justify-center p-8 md:p-12">
-                                        <Database className="w-16 h-16 text-slate-700 group-hover:text-cyan-400/30 transition-colors" />
+                                    <div className="aspect-video bg-slate-800/50 overflow-hidden">
+                                        <img
+                                            src={story.img}
+                                            alt={story.title}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-75 group-hover:brightness-100"
+                                        />
                                     </div>
                                     <div className="p-6 md:p-10 space-y-6 flex-grow">
                                         <span className="px-4 py-2 rounded-xl bg-cyan-500/10 text-cyan-400 text-[10px] font-black uppercase tracking-widest">{story.tag}</span>
@@ -407,7 +448,7 @@ const Support: React.FC = () => {
                 <section className="py-24 relative z-10 bg-slate-900/40 backdrop-blur-3xl border-y border-white/5">
                     <div className="max-w-[1700px] mx-auto px-4 md:px-12 text-center">
                         <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-24">
-                            An Integrated Path from <br />Discovery to Validation
+                            An Integrated Path from Discovery to Validation
                         </h2>
                         <div className="grid lg:grid-cols-3 gap-12 items-center relative mb-24">
                             <div className="hidden lg:block absolute top-1/2 left-1/3 right-1/3 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent -translate-y-1/2"></div>

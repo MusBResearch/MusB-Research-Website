@@ -403,3 +403,48 @@ def facilities_page_data(request):
         'trust_badges': TrustBadgeSerializer(badges, many=True).data,
         'success_signals': SuccessSignalSerializer(signals, many=True).data,
     })
+
+@api_view(['POST'])
+def facility_inquiry(request):
+    from .serializers import FacilityInquirySerializer
+    from .models import FacilitiesPageSettings
+    
+    data = request.data.copy()
+    interest = data.get('interest', 'General')
+    
+    pf_settings = FacilitiesPageSettings.load()
+    
+    if 'Research' in interest:
+        routed_to = pf_settings.research_inquiry_email
+    elif 'Lab' in interest:
+        routed_to = pf_settings.lab_inquiry_email
+    elif 'Bio' in interest:
+        routed_to = pf_settings.bio_inquiry_email
+    else:
+        routed_to = pf_settings.general_inquiry_email
+        
+    data['routed_to_email'] = routed_to
+    
+    serializer = FacilityInquirySerializer(data=data)
+    if serializer.is_valid():
+        inquiry = serializer.save()
+        try:
+            from django.core.mail import send_mail
+            from django.conf import settings as django_settings
+            subject = f"New Facility Inquiry: {inquiry.interest}"
+            message = (
+                f"New inquiry received from {inquiry.name} ({inquiry.email})\n"
+                f"Company: {inquiry.company or 'N/A'}\n"
+                f"Interest: {inquiry.interest}\n"
+                f"Stage: {inquiry.stage}\n"
+            )
+            send_mail(subject, message, django_settings.DEFAULT_FROM_EMAIL, [inquiry.routed_to_email], fail_silently=True)
+        except Exception as e:
+            print(f"Failed to send email: {e}")
+            
+        return Response({
+            'success': True,
+            'message': 'Facility Inquiry submitted successfully.',
+            'routed_to': inquiry.routed_to_email
+        }, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

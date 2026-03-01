@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Filter, Check, ChevronDown, ArrowRight, DollarSign, Activity } from 'lucide-react';
+import { Filter, Check, ChevronDown, ArrowRight, Activity } from 'lucide-react';
 import { fetchStudies } from '@/api';
 import { Condition } from '@/types';
 
@@ -8,8 +8,6 @@ const conditions: Condition[] = ['Gut', 'Brain', 'Metabolic', 'Aging', 'Women’
 
 export default function ClinicalStudyFinder() {
     const [selectedCondition, setSelectedCondition] = useState<Condition | ''>('');
-    const [showPaidOnly, setShowPaidOnly] = useState(false);
-    const [showFreeTestingOnly, setShowFreeTestingOnly] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [studies, setStudies] = useState<any[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -111,16 +109,16 @@ export default function ClinicalStudyFinder() {
                                         </div>
                                     </div>
 
-                                    <button className="w-full py-3 rounded-xl bg-slate-900 text-white font-bold text-sm uppercase tracking-wider hover:bg-cyan-600 transition-colors shadow-lg shadow-slate-200 flex items-center justify-center gap-2 group-hover:shadow-cyan-200/50">
+                                    <Link to={`/trials?id=${study.id}#current-studies`} className="w-full py-3 rounded-xl bg-slate-900 text-white font-bold text-sm uppercase tracking-wider hover:bg-cyan-600 transition-colors shadow-lg shadow-slate-200 flex items-center justify-center gap-2 group-hover:shadow-cyan-200/50">
                                         Check Eligibility
-                                    </button>
+                                    </Link>
                                 </div>
                             ))
                         ) : (
                             <div className="col-span-full py-12 text-center bg-slate-50 rounded-2xl border border-dashed border-slate-300">
                                 <p className="text-slate-500 font-medium">No studies found matching your criteria.</p>
                                 <button
-                                    onClick={() => { setSelectedCondition(''); setShowPaidOnly(false); setShowFreeTestingOnly(false); }}
+                                    onClick={() => { setSelectedCondition(''); }}
                                     className="text-cyan-600 font-bold mt-2 hover:underline"
                                 >
                                     Clear Filters

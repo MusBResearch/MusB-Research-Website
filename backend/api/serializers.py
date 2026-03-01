@@ -306,3 +306,12 @@ class SuccessSignalSerializer(serializers.ModelSerializer):
     class Meta:
         model = SuccessSignal
         fields = '__all__'
+
+
+class FacilityInquirySerializer(serializers.ModelSerializer):
+    id = serializers.CharField(read_only=True)
+    class Meta:
+        from .models import FacilityInquiry
+        model = FacilityInquiry
+        fields = ['id', 'name', 'email', 'company', 'interest', 'stage', 'routed_to_email', 'submitted_at']
+        read_only_fields = ['id', 'routed_to_email', 'submitted_at']

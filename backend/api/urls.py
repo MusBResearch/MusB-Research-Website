@@ -54,4 +54,5 @@ urlpatterns = [
     # Newsletter
     path('newsletter/subscribe/', views.newsletter_subscribe, name='newsletter_subscribe'),
     path('facilities-page/', views.facilities_page_data, name='facilities_page_data'),
+    path('facilities-inquiry/', views.facility_inquiry, name='facility_inquiry'),
 ]

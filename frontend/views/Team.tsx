@@ -259,16 +259,30 @@ export default function Team() {
             </div>
 
             {/* Hero Section */}
-            <section className="relative z-10 pt-32 pb-8 px-6">
+            <section className="relative z-10 pt-32 pb-16 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center space-y-6 max-w-7xl mx-auto">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+                        {/* Left: Title + Intro */}
+                        <div className="flex-1 space-y-6 text-left">
+                            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-tight">
+                                Our <span className="text-cyan-400">Team</span>
+                            </h1>
+                            <div className="space-y-3 text-lg md:text-xl text-slate-300 font-medium max-w-2xl">
+                                <p>A multidisciplinary team of scientists, clinicians, and professionals dedicated to advancing translational and clinical research.</p>
+                                <p>Built on academic rigor, regulatory excellence, and community engagement.</p>
+                            </div>
+                        </div>
 
-                        <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-tight">
-                            Our <span className="text-cyan-400">Team</span>
-                        </h1>
-                        <div className="space-y-3 text-lg md:text-xl text-slate-300 font-medium max-w-6xl mx-auto">
-                            <p>A multidisciplinary team of scientists, clinicians, and professionals dedicated to advancing translational and clinical research.</p>
-                            <p>Built on academic rigor, regulatory excellence, and community engagement.</p>
+                        {/* Right: Subtle Visual Optional */}
+                        <div className="flex-1 hidden md:flex justify-end">
+                            <div className="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
+                                <div className="absolute inset-8 border border-white/10 rounded-full flex items-center justify-center">
+                                    <Users className="w-24 h-24 text-white/5" />
+                                </div>
+                                <div className="absolute inset-16 border border-cyan-400/10 xl:border-cyan-400/20 rounded-full flex items-center justify-center">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

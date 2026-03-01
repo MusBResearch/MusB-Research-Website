@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {
     Microscope, Beaker, Archive, ArrowRight, ShieldCheck, Star,
-    ChevronDown, ChevronUp, FileText, Activity, Layers, Database
+    ChevronDown, ChevronUp, FileText, Activity, Layers, Database,
+    ClipboardCheck, Users, Lock, Zap, Handshake
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { fetchFacilitiesPageData, submitSponsorInquiry } from '@/api';
+import { fetchFacilitiesPageData, submitFacilityInquiry } from '@/api';
 
 export default function Facilities() {
     const [data, setData] = useState<any>(null);
@@ -38,14 +39,12 @@ export default function Facilities() {
         e.preventDefault();
         setFormStatus('submitting');
         try {
-            await submitSponsorInquiry({
+            await submitFacilityInquiry({
                 name: formState.name,
                 email: formState.email,
                 company: formState.company,
-                // Mapping fields to backend model expectation (using notes/message for extra fields)
-                inquiry_type: 'general',
-                message: `Role: ${formState.role}\nInterest: ${formState.interest}\nStage: ${formState.stage}\n\n(Submitted via Facilities Page)`,
-                technology: null
+                interest: formState.interest,
+                stage: formState.stage
             });
             setFormStatus('success');
             setFormState({ name: '', email: '', company: '', role: '', interest: 'Research', stage: 'Concept' });
@@ -61,7 +60,11 @@ export default function Facilities() {
 
     // Helper to get icon component
     const getIcon = (name: string) => {
-        const icons: any = { Microscope, Beaker, Archive, ArrowRight, ShieldCheck, Star, FileText, Activity, Layers, Database };
+        const icons: any = {
+            Microscope, Beaker, Archive, ArrowRight, ShieldCheck, Star,
+            FileText, Activity, Layers, Database, ClipboardCheck, Users,
+            Lock, Zap, Handshake
+        };
         return icons[name] || Activity;
     };
 
@@ -92,7 +95,7 @@ export default function Facilities() {
                                 Start a Project
                             </a>
                             <button className="flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all font-bold text-cyan-400 uppercase tracking-wide">
-                                <FileText className="w-5 h-5" /> Capabilities Deck
+                                <FileText className="w-5 h-5" /> Download Capabilities Deck (PDF)
                             </button>
                         </div>
                     </div>
@@ -147,7 +150,7 @@ export default function Facilities() {
                         <h3 className="text-2xl font-bold text-white mb-2">Central Lab Services</h3>
                         <p className="text-slate-400 mb-6">Biomarker & molecular testing.</p>
                         <div className="flex items-center text-indigo-400 font-bold uppercase text-sm tracking-wider group-hover:text-indigo-300">
-                            Request Services <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                            Request Lab Services <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </div>
                     </Link>
 
@@ -159,7 +162,7 @@ export default function Facilities() {
                         <h3 className="text-2xl font-bold text-white mb-2">Biorepository</h3>
                         <p className="text-slate-400 mb-6">Secure sample storage & tracking.</p>
                         <div className="flex items-center text-purple-400 font-bold uppercase text-sm tracking-wider group-hover:text-purple-300">
-                            Explore Storage <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                            Explore Biorepository <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </div>
                     </Link>
                 </div>
@@ -171,10 +174,11 @@ export default function Facilities() {
                     {/* Header */}
                     <div className="text-center max-w-6xl mx-auto space-y-6">
 
-                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.research_pillar_desc}</h2>
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.research_pillar_title || 'Research & Innovation'}</h2>
+                        <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">{settings.research_pillar_desc}</p>
                         <div className="flex justify-center gap-4 flex-wrap">
                             <a href="#lead-capture" className="bg-white text-slate-900 px-6 py-3 rounded-lg font-bold hover:bg-slate-200 transition-colors">Discuss a Research Plan</a>
-                            <button className="text-slate-400 font-bold hover:text-white transition-colors">See Example Designs</button>
+                            <button className="text-slate-400 font-bold hover:text-white transition-colors">See Example Study Designs</button>
                         </div>
                     </div>
 
@@ -236,6 +240,16 @@ export default function Facilities() {
                             </div>
                         ))}
                     </div>
+
+                    {/* Pillar CTA Strip */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 border-t border-slate-900/50 mt-12">
+                        <a href="#lead-capture" className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-4 rounded-xl font-bold uppercase tracking-wide transition-all shadow-lg shadow-cyan-500/20">
+                            Start a Research Project
+                        </a>
+                        <button className="flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all font-bold text-cyan-400 uppercase tracking-wide">
+                            Request a Feasibility Call
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -244,9 +258,11 @@ export default function Facilities() {
                 <div className="max-w-[90rem] mx-auto space-y-12">
                     <div className="text-center max-w-6xl mx-auto space-y-6">
 
-                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.lab_pillar_desc}</h2>
-                        <div className="flex justify-center gap-4">
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.lab_pillar_title || 'Central Laboratory Services'}</h2>
+                        <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">{settings.lab_pillar_desc}</p>
+                        <div className="flex justify-center gap-4 flex-wrap">
                             <a href="#lead-capture" className="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-lg font-bold transition-colors">Request Lab Services</a>
+                            <button className="text-slate-400 font-bold hover:text-white transition-colors">Get a Sample Handling Guide</button>
                         </div>
                     </div>
 
@@ -255,13 +271,17 @@ export default function Facilities() {
                             <div key={module.id} className={`flex flex-col lg:flex-row gap-12 items-center ${module.layout === 'ImageLeft' ? 'lg:flex-row-reverse' : ''}`}>
                                 <div className="flex-1 space-y-8">
                                     <div className="space-y-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-full bg-indigo-900/50 flex items-center justify-center text-indigo-400 border border-indigo-500/30">
-                                                <Beaker className="w-5 h-5" />
+                                        <div className="flex items-start justify-between gap-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-10 h-10 rounded-full bg-indigo-900/50 flex items-center justify-center text-indigo-400 border border-indigo-500/30 shrink-0">
+                                                    <Beaker className="w-5 h-5" />
+                                                </div>
+                                                <h3 className="text-3xl font-bold text-white">{module.title}</h3>
                                             </div>
-                                            <h3 className="text-3xl font-bold text-white">{module.title}</h3>
+                                            {module.badge_label && <span className="text-xs font-bold uppercase tracking-wider text-slate-500 border border-slate-800 px-3 py-1.5 rounded-full shrink-0 hidden sm:inline-block">{module.badge_label}</span>}
                                         </div>
                                         <p className="text-xl text-slate-400">{module.one_line_summary}</p>
+                                        {module.badge_label && <span className="text-xs font-bold uppercase tracking-wider text-slate-500 border border-slate-800 px-3 py-1.5 rounded-full inline-block sm:hidden">{module.badge_label}</span>}
                                     </div>
                                     <div className="border border-slate-800 rounded-2xl bg-slate-900/50 overflow-hidden">
                                         <button onClick={() => toggleAccordion(module.id)} className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-800/50 transition-colors">
@@ -291,6 +311,16 @@ export default function Facilities() {
                             </div>
                         ))}
                     </div>
+
+                    {/* Pillar CTA Strip */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 border-t border-slate-900/50 mt-12">
+                        <a href="#lead-capture" className="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wide transition-all shadow-lg shadow-indigo-500/20">
+                            Get a Testing Quote
+                        </a>
+                        <button className="flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-all font-bold text-indigo-400 uppercase tracking-wide">
+                            Speak With Lab Director
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -299,11 +329,14 @@ export default function Facilities() {
                 <div className="max-w-[90rem] mx-auto space-y-12">
                     <div className="text-center max-w-6xl mx-auto space-y-6">
 
-                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.bio_pillar_desc}</h2>
-                        <div className="flex justify-center gap-4">
-                            <a href="#lead-capture" className="bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-lg font-bold transition-colors">Explore Biorepository</a>
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white">{settings.bio_pillar_title || 'Biorepository'}</h2>
+                        <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">{settings.bio_pillar_desc}</p>
+                        <div className="flex justify-center gap-4 flex-wrap">
+                            <a href="#lead-capture" className="bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-lg font-bold transition-colors">Explore Biorepository Support</a>
+                            <button className="text-slate-400 font-bold hover:text-white transition-colors">Request Storage Pricing</button>
                         </div>
                     </div>
+
                     <div className="space-y-16">
                         {modules.filter((m: any) => m.pillar === 'Biorepository').map((module: any) => (
                             <div key={module.id} className={`flex flex-col lg:flex-row gap-12 items-center ${module.layout === 'ImageLeft' ? 'lg:flex-row-reverse' : ''}`}>
@@ -346,26 +379,43 @@ export default function Facilities() {
                             </div>
                         ))}
                     </div>
+
+                    {/* Pillar CTA Strip */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 border-t border-slate-900/50 mt-12">
+                        <a href="#lead-capture" className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wide transition-all shadow-lg shadow-purple-500/20">
+                            Schedule a Storage Consult
+                        </a>
+                        <button className="flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all font-bold text-purple-400 uppercase tracking-wide">
+                            Download Sample Submission SOP
+                        </button>
+                    </div>
                 </div>
-            </section>
+            </section >
 
             {/* 5) CROSS-PILLAR TRUST STRIP */}
-            <section className="py-12 border-y border-slate-800 bg-slate-900/50">
-                <div className="max-w-[90rem] mx-auto flex flex-wrap justify-center gap-12 px-6">
-                    {trust_badges.map((badge: any, i: number) => {
-                        const Icon = getIcon(badge.icon);
-                        return (
-                            <div key={i} className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
-                                <Icon className="w-6 h-6 text-cyan-500" />
-                                <span className="font-bold text-lg text-slate-300 uppercase tracking-wide">{badge.label}</span>
-                            </div>
-                        );
-                    })}
+            < section className="py-12 md:py-16 border-y border-slate-800 bg-slate-900/50" >
+                <div className="max-w-[90rem] mx-auto flex flex-col items-center gap-12 px-6">
+                    <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+                        {trust_badges.map((badge: any, i: number) => {
+                            const Icon = getIcon(badge.icon);
+                            return (
+                                <div key={i} className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
+                                    <Icon className="w-6 h-6 text-cyan-500" />
+                                    <span className="font-bold text-lg text-slate-300 uppercase tracking-wide">{badge.label}</span>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div>
+                        <a href="#lead-capture" className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-widest text-slate-900 uppercase transition-all bg-cyan-400 rounded-xl hover:bg-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.3)]">
+                            Talk to a Scientist
+                        </a>
+                    </div>
                 </div>
-            </section>
+            </section >
 
             {/* 6) SUCCESS SIGNALS */}
-            <section className="py-12 md:py-16 px-6 max-w-[90rem] mx-auto">
+            < section className="py-12 md:py-16 px-6 max-w-[90rem] mx-auto" >
                 <div className="text-center mb-12">
                     <h2 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tight">Why Sponsors Choose MusB</h2>
                 </div>
@@ -381,10 +431,15 @@ export default function Facilities() {
                         )
                     })}
                 </div>
-            </section>
+                <div className="text-center mt-6">
+                    <a href="#lead-capture" className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-widest text-white uppercase transition-all bg-indigo-600 rounded-xl hover:bg-indigo-500 shadow-lg shadow-indigo-500/25">
+                        Start the Conversation
+                    </a>
+                </div>
+            </section >
 
             {/* 7) FINAL LEAD CAPTURE (Conversion Section) */}
-            <section id="lead-capture" className="py-12 md:py-16 px-6 bg-gradient-to-br from-slate-900 to-slate-950 border-t border-slate-800">
+            < section id="lead-capture" className="py-12 md:py-16 px-6 bg-gradient-to-br from-slate-900 to-slate-950 border-t border-slate-800" >
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
                     <div className="space-y-8">
                         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">Ready to Move Faster With Better Evidence?</h2>
@@ -423,7 +478,7 @@ export default function Facilities() {
                                             className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500"
                                         >
                                             <option>Research & Innovation</option>
-                                            <option>Central Lab Services</option>
+                                            <option>Central Laboratory Services</option>
                                             <option>Biorepository</option>
                                             <option>Not sure (Help me choose)</option>
                                         </select>
@@ -479,13 +534,13 @@ export default function Facilities() {
                                     disabled={formStatus === 'submitting'}
                                     className="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase tracking-widest py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    {formStatus === 'submitting' ? 'Sending...' : 'Request Consultation'}
+                                    {formStatus === 'submitting' ? 'Sending...' : 'Request a Consultation'}
                                 </button>
                             </form>
                         )}
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 }

@@ -44,6 +44,7 @@ export default function Layout({ children }: LayoutProps) {
             label: 'About Us',
             children: [
                 { path: '/why-choose-us', label: 'Why Choose MusB Research' },
+                { path: '/capabilities', label: 'Capabilities' },
                 { path: '/facilities', label: 'Facilities' },
                 { path: '/team', label: 'Our Team' },
                 { path: '/trials', label: 'Find a Study' },
@@ -89,7 +90,7 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Sticky Header */}
             <header className="fixed top-0 left-0 right-0 z-50 glass-nav h-20 md:h-24 transition-all duration-500">
-                <div className="max-w-[1800px] mx-auto px-4 md:px-12 h-full flex items-center justify-between">
+                <div className="max-w-[1800px] mx-auto px-4 md:px-6 2xl:px-12 h-full flex items-center justify-between gap-4 xl:gap-8">
                     {/* Logo - Acts as Home button opening in new tab */}
                     <a
                         href="/"
@@ -103,9 +104,9 @@ export default function Layout({ children }: LayoutProps) {
                     </a>
 
                     {/* Right-aligned Navigation Group */}
-                    <div className="hidden xl:flex items-center gap-12 ml-auto">
+                    <div className="hidden xl:flex items-center gap-4 2xl:gap-12 ml-auto">
                         {/* Desktop Navigation */}
-                        <nav className="flex items-center gap-8">
+                        <nav className="flex items-center gap-3 2xl:gap-8">
                             {navItems.map((item) => (
                                 <div
                                     key={item.label}
@@ -115,7 +116,7 @@ export default function Layout({ children }: LayoutProps) {
                                 >
                                     {item.path === '#' ? (
                                         <div
-                                            className="text-[13px] font-black tracking-[0.12em] uppercase transition-all hover:text-cyan-600 flex items-center gap-1.5 py-8 cursor-pointer text-slate-800"
+                                            className="text-[11px] font-black tracking-[0.12em] uppercase transition-all hover:text-cyan-600 flex items-center gap-1 2xl:gap-1.5 py-8 cursor-pointer text-slate-800 whitespace-nowrap"
                                         >
                                             {item.label}
                                             <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''}`} />
@@ -124,7 +125,7 @@ export default function Layout({ children }: LayoutProps) {
                                     ) : (
                                         <Link
                                             to={item.path}
-                                            className={`text-[13px] font-black tracking-[0.12em] uppercase transition-all hover:text-cyan-600 flex items-center gap-1.5 py-8 ${location.pathname === item.path ? 'text-cyan-600' : 'text-slate-800'
+                                            className={`text-[11px] font-black tracking-[0.12em] uppercase transition-all hover:text-cyan-600 flex items-center gap-1 2xl:gap-1.5 py-8 whitespace-nowrap ${location.pathname === item.path ? 'text-cyan-600' : 'text-slate-800'
                                                 }`}
                                         >
                                             {item.label}
@@ -143,7 +144,7 @@ export default function Layout({ children }: LayoutProps) {
                                                         key={child.path + child.label}
                                                         to={child.path}
                                                         onClick={() => setOpenDropdown(null)}
-                                                        className="block px-5 py-3 rounded-xl text-[12px] font-bold uppercase tracking-wider text-slate-700 hover:bg-slate-100 hover:text-cyan-600 transition-all"
+                                                        className="block px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-wider text-slate-700 hover:bg-slate-100 hover:text-cyan-600 transition-all"
                                                     >
                                                         {child.label}
                                                     </Link>
@@ -156,19 +157,19 @@ export default function Layout({ children }: LayoutProps) {
                         </nav>
 
                         {/* CTA Buttons */}
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 2xl:gap-4">
                             {isTrialsPage ? (
                                 <>
                                     <Link
-                                        to="/trials#contact"
-                                        className="bg-cyan-500 text-slate-900 px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-white hover:-translate-y-0.5 transition-all shadow-xl shadow-cyan-500/20 flex items-center gap-2"
+                                        to="/trials#current-studies"
+                                        className="bg-cyan-500 text-slate-900 px-4 2xl:px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-white hover:-translate-y-0.5 transition-all shadow-xl shadow-cyan-500/20 flex items-center gap-1 2xl:gap-2 whitespace-nowrap"
                                     >
                                         Check Eligibility
                                         <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <a
                                         href="tel:+18134190781"
-                                        className="border-2 border-slate-900 text-slate-900 px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-slate-950 hover:text-white transition-all backdrop-blur-md"
+                                        className="border-2 border-slate-900 text-slate-900 px-4 2xl:px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-slate-950 hover:text-white transition-all backdrop-blur-md whitespace-nowrap"
                                     >
                                         Call / Text Us
                                     </a>
@@ -177,14 +178,14 @@ export default function Layout({ children }: LayoutProps) {
                                 <>
                                     <Link
                                         to="/trials"
-                                        className="bg-cyan-500 text-slate-900 px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-white hover:-translate-y-0.5 transition-all shadow-xl shadow-cyan-500/20 flex items-center gap-2"
+                                        className="bg-cyan-500 text-slate-900 px-4 2xl:px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-white hover:-translate-y-0.5 transition-all shadow-xl shadow-cyan-500/20 flex items-center gap-1 2xl:gap-2 whitespace-nowrap"
                                     >
                                         Join a Study
                                         <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
                                         to="/contact"
-                                        className="border-2 border-slate-900 text-slate-900 px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-slate-950 hover:text-white transition-all backdrop-blur-md"
+                                        className="border-2 border-slate-900 text-slate-900 px-4 2xl:px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-slate-950 hover:text-white transition-all backdrop-blur-md whitespace-nowrap"
                                     >
                                         Contact Sales
                                     </Link>
@@ -252,7 +253,7 @@ export default function Layout({ children }: LayoutProps) {
                                             Call / Text Us
                                         </a>
                                         <Link
-                                            to="/trials#contact"
+                                            to="/trials#current-studies"
                                             onClick={() => setIsMenuOpen(false)}
                                             className="block w-full text-center bg-cyan-500 text-slate-900 p-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2"
                                         >

@@ -20,8 +20,7 @@ import {
     HeartPulse,
     SearchCheck,
     CalendarCheck,
-    Stethoscope,
-    HandCoins
+    Stethoscope
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { fetchStudies, submitContactForm } from '@/api';
@@ -94,7 +93,7 @@ export default function Trials() {
         },
         {
             q: "What do I get for participating?",
-            a: "Eligible volunteers may receive a no-cost product supply and a personalized health report upon completion. Some studies may include compensation."
+            a: "Eligible volunteers may receive a no-cost product supply and a personalized health report upon completion."
         },
         {
             q: "Can I discuss the study with my healthcare provider?",
@@ -160,9 +159,7 @@ export default function Trials() {
                                 <HeartPulse className="w-4 h-4" /> Active Clinical Trials
                             </div>
                             <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-[0.85] uppercase italic">
-                                Join a Study. <br />
-                                Help Advance <br />
-                                <span className="text-cyan-400 italic font-black">Natural</span> Health Science.
+                                Join a Study. Help Advance <span className="text-cyan-400 italic font-black">Natural</span> Health Science.
                             </h1>
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-4 text-xl text-slate-300 font-medium">
@@ -176,7 +173,7 @@ export default function Trials() {
                             </ul>
                             <div className="flex flex-wrap gap-4 pt-4">
                                 <Link
-                                    to="/contact"
+                                    to="#current-studies"
                                     className="bg-cyan-500 text-slate-900 px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:-translate-y-1 transition-all shadow-xl shadow-cyan-500/20 flex items-center gap-2"
                                 >
                                     Check Eligibility
@@ -241,7 +238,7 @@ export default function Trials() {
                             </div>
                             <h3 className="text-3xl font-black text-white mb-4">No-Cost Study Product</h3>
                             <p className="text-slate-400 font-medium leading-relaxed mb-8">Receive a 2-6-week supply when eligible and participate in groundbreaking health research.</p>
-                            <Link to="#contact" className="bg-cyan-500 text-slate-900 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest inline-block hover:bg-white transition-colors">Check Eligibility</Link>
+                            <Link to="#current-studies" className="bg-cyan-500 text-slate-900 px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest inline-block hover:bg-white transition-colors">Check Eligibility</Link>
                         </div>
                         <div className="group bg-slate-900/40 backdrop-blur-3xl p-8 md:p-12 rounded-[4rem] border border-white/5 hover:border-indigo-500/30 transition-all shadow-2xl">
                             <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-8 group-hover:scale-110 transition-transform">
@@ -249,7 +246,7 @@ export default function Trials() {
                             </div>
                             <h3 className="text-3xl font-black text-white mb-4">Contribute to Science</h3>
                             <p className="text-slate-400 font-medium leading-relaxed mb-8">Help validate natural health products for real people and shape the future of medicine.</p>
-                            <Link to="#contact" className="bg-indigo-500 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest inline-block hover:bg-white hover:text-slate-900 transition-all">Check Eligibility</Link>
+                            <Link to="#current-studies" className="bg-indigo-500 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest inline-block hover:bg-white hover:text-slate-900 transition-all">Check Eligibility</Link>
                         </div>
                     </div>
                 </section >
@@ -287,9 +284,9 @@ export default function Trials() {
                                     },
                                     {
                                         step: "Step 4",
-                                        title: "Complete the Study & Get Compensated",
-                                        icon: HandCoins,
-                                        desc: "Finish the study activities and receive your compensation as a thank-you for contributing to important research."
+                                        title: "Complete the Study & Receive Feedback",
+                                        icon: HeartPulse,
+                                        desc: "Finish the study activities and receive a personalized health report as a thank-you for contributing to important research."
                                     }
                                 ].map((item, idx) => (
                                     <div key={idx} className="relative group">
@@ -370,12 +367,21 @@ export default function Trials() {
                                             <div className="text-sm font-bold text-white">{study.benefit}</div>
                                         </div>
                                     </div>
-                                    <button
-                                        disabled={study.status !== 'Recruiting'}
-                                        className={`w-full py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all ${study.status === 'Recruiting' ? 'bg-cyan-500 text-slate-900 hover:bg-white' : 'bg-white/5 text-slate-600 cursor-not-allowed'}`}
-                                    >
-                                        {study.status === 'Recruiting' ? 'Join Study' : 'Study Full'}
-                                    </button>
+                                    {study.status === 'Recruiting' ? (
+                                        <Link
+                                            to="#contact"
+                                            className="block w-full text-center py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all bg-cyan-500 text-slate-900 hover:bg-white"
+                                        >
+                                            Join Study
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            disabled
+                                            className="w-full py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all bg-white/5 text-slate-600 cursor-not-allowed"
+                                        >
+                                            Study Full
+                                        </button>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -387,7 +393,7 @@ export default function Trials() {
 
                     <div className="max-w-[1400px] mx-auto px-6 relative z-10">
                         <div className="max-w-3xl space-y-12">
-                            <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-tight uppercase">Join the MusB™ <br />Research Mission</h2>
+                            <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-tight uppercase">Join the MusB™ Research Mission</h2>
                             <p className="text-xl md:text-2xl text-slate-400 font-bold max-w-2xl">
                                 Make history in some of the world's largest studies on supplements and natural health products.
                             </p>
@@ -433,7 +439,7 @@ export default function Trials() {
                         ))}
                     </div>
                     <div className="mt-16 text-center">
-                        <Link to="#contact" className="text-cyan-400 font-black text-sm uppercase tracking-[0.2em] border-b-2 border-cyan-400/30 pb-2 hover:border-cyan-400 hover:text-white transition-all">Check Eligibility</Link>
+                        <Link to="#current-studies" className="text-cyan-400 font-black text-sm uppercase tracking-[0.2em] border-b-2 border-cyan-400/30 pb-2 hover:border-cyan-400 hover:text-white transition-all">Check Eligibility</Link>
                     </div>
                 </section >
 
@@ -441,7 +447,7 @@ export default function Trials() {
                 <section id="contact" className="py-24 max-w-[1400px] mx-auto px-4 md:px-12" >
                     <div className="grid lg:grid-cols-2 gap-16">
                         <div className="space-y-8 lg:pt-12">
-                            <h2 className="text-5xl font-black text-white leading-tight uppercase">Get Matched to <br />a Clinical Study</h2>
+                            <h2 className="text-5xl font-black text-white leading-tight uppercase">Get Matched to a Clinical Study</h2>
                             <p className="text-xl text-slate-400 font-medium max-w-lg">Not sure which study fits you? We will match you based on your interests and eligibility.</p>
                             <div className="space-y-6 pt-8">
                                 <div className="flex items-center gap-4 group">

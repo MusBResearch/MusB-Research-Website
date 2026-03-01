@@ -13,6 +13,7 @@ import Trials from './views/Trials';
 import Support from './views/Support';
 import JobDetail from './views/JobDetail';
 import WhyChooseUs from './views/WhyChooseUs';
+import Capabilities from './views/Capabilities';
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                     <Route path="/careers/:id" element={<JobDetail />} />
                     <Route path="/facilities" element={<Facilities />} />
                     <Route path="/trials" element={<Trials />} />
+                    <Route path="/capabilities" element={<Capabilities />} />
                     <Route path="/support" element={<Support />} />
                 </Routes>
             </Layout>
