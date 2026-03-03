@@ -1,6 +1,7 @@
 // ============================================================
 // API INTEGRATION LAYER
 // ============================================================
+import { getToken } from './utils/auth';
 
 // @ts-ignore - Vite provides import.meta.env at runtime
 const API_BASE = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_API_URL) || 'http://localhost:8000';
@@ -9,6 +10,12 @@ async function apiFetch<T>(endpoint: string, options?: RequestInit): Promise<T> 
     const url = `${API_BASE}${endpoint}`;
 
     const headers: Record<string, string> = { ...(options?.headers as any) };
+
+    const token = getToken();
+    if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+    }
+
     if (!(options?.body instanceof FormData)) {
         headers['Content-Type'] = 'application/json';
     }

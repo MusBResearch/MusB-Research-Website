@@ -142,7 +142,7 @@ const Support: React.FC = () => {
                             {/* Left Content */}
                             <div className="space-y-10 animate-fade-in-up text-left">
                                 <div className="space-y-6">
-                                    <h1 className="text-6xl md:text-8xl font-black text-white tracking-tight leading-[0.9] uppercase italic">
+                                    <h1 className="text-[40px] md:text-[70px] font-black text-white tracking-tight leading-[0.9] uppercase italic">
                                         Your Trusted Partner in <span className="text-cyan-400">R&D Excellence</span>
                                     </h1>
                                     <div className="space-y-4">
@@ -153,7 +153,7 @@ const Support: React.FC = () => {
                                         ].map((text, i) => (
                                             <div key={i} className="flex items-start gap-4">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2.5 shadow-[0_0_10px_rgba(6,182,212,0.8)] shrink-0"></div>
-                                                <p className="text-xl text-slate-300 font-medium leading-tight m-0">{text}</p>
+                                                <p className="text-[15px] text-slate-300 font-medium leading-tight m-0">{text}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -161,12 +161,12 @@ const Support: React.FC = () => {
                                 <div className="flex flex-col sm:flex-row items-center justify-start gap-8 pt-6">
                                     <button
                                         onClick={() => setShowRouter(true)}
-                                        className="w-full sm:w-auto bg-cyan-500 text-slate-900 px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-1 transition-all shadow-2xl shadow-cyan-500/30 flex items-center justify-center gap-4 group"
+                                        className="w-full sm:w-auto bg-cyan-500 text-slate-900 px-12 py-5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:-translate-y-1 transition-all shadow-2xl shadow-cyan-500/30 flex items-center justify-center gap-4 group"
                                     >
                                         Start the Conversation
                                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </button>
-                                    <Link to="/capabilities" className="text-white hover:text-cyan-400 font-black text-sm uppercase tracking-[0.2em] flex items-center gap-2 transition-colors group">
+                                    <Link to="/capabilities" className="text-white hover:text-cyan-400 font-black text-[10px] uppercase tracking-[0.2em] flex items-center gap-2 transition-colors group">
                                         Explore Our Capabilities <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
@@ -182,7 +182,7 @@ const Support: React.FC = () => {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
                                     <div className="absolute bottom-12 left-12 right-12 space-y-2">
-                                        <p className="text-cyan-400 font-black text-xs uppercase tracking-[0.4em]">Integrated Research</p>
+                                        <p className="text-cyan-400 font-black text-[10px] uppercase tracking-[0.4em]">Integrated Research</p>
                                         <h3 className="text-white text-3xl font-black uppercase tracking-tight leading-none italic">
                                             Bench to Bedside.<br />
                                             <span className="text-slate-400">Discovery to Validation.</span>

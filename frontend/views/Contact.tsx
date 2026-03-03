@@ -316,16 +316,31 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        {/* Map Placeholder */}
-                        <div className="aspect-square bg-slate-900 rounded-[3.5rem] border border-white/5 overflow-hidden shadow-2xl relative group cursor-pointer hover:border-cyan-500/30 transition-all">
-                            <div className="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=6331+State+Road+54,New+Port+Richey,FL+34653&zoom=15&size=600x600&maptype=roadmap&markers=color:cyan%7C6331+State+Road+54,New+Port+Richey,FL+34653&key=YOUR_API_KEY')] bg-cover opacity-60 group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0"></div>
-                            <div className="absolute inset-0 bg-slate-950/40 group-hover:bg-transparent transition-colors"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="bg-slate-950/80 backdrop-blur-xl px-6 py-4 rounded-2xl border border-white/10 text-white font-black uppercase tracking-widest text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
+                        {/* Embedded Google Map */}
+                        <a
+                            href="https://www.google.com/maps/place/MusB+Diagnostics/@28.2186349,-82.7088581,16z/data=!4m6!3m5!1s0x88c291e526b3babf:0x551f1e65be2161c1!8m2!3d28.217776!4d-82.7096327!16s%2Fg%2F11zj8j5wsj?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="aspect-square bg-slate-900 rounded-[3.5rem] border border-white/5 overflow-hidden shadow-2xl relative group cursor-pointer hover:border-cyan-500/30 transition-all block"
+                        >
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3517.8!2d-82.7096327!3d28.217776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c291e526b3babf%3A0x551f1e65be2161c1!2sMusB%20Diagnostics!5e0!3m2!1sen!2sus!4v1709500000000!5m2!1sen!2sus"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0, pointerEvents: 'none' }}
+                                allowFullScreen={false}
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="MusB Diagnostics Location"
+                                className="absolute inset-0 w-full h-full"
+                            ></iframe>
+                            <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors z-10"></div>
+                            <div className="absolute inset-0 flex items-center justify-center z-20">
+                                <div className="bg-slate-950/80 backdrop-blur-xl px-6 py-4 rounded-2xl border border-white/10 text-white font-black uppercase tracking-widest text-[10px] group-hover:bg-cyan-500 group-hover:text-slate-950 group-hover:border-cyan-400 transition-all">
                                     Open Google Maps
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </section>

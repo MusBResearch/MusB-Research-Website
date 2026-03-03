@@ -14,6 +14,9 @@ import Support from './views/Support';
 import JobDetail from './views/JobDetail';
 import WhyChooseUs from './views/WhyChooseUs';
 import Capabilities from './views/Capabilities';
+import AuthCallback from './views/auth/Callback';
+import SuperAdminDashboard from './views/SuperAdminDashboard';
+import AdminDashboard from './views/AdminDashboard';
 
 function App() {
     return (
@@ -34,6 +37,9 @@ function App() {
                     <Route path="/trials" element={<Trials />} />
                     <Route path="/capabilities" element={<Capabilities />} />
                     <Route path="/support" element={<Support />} />
+                    <Route path="/auth/callback" element={<AuthCallback />} />
+                    <Route path="/dashboard/super-admin" element={<SuperAdminDashboard />} />
+                    <Route path="/dashboard/admin" element={<AdminDashboard />} />
                 </Routes>
             </Layout>
         </Router>

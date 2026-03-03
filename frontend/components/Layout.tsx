@@ -1,6 +1,7 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight, Linkedin, Mail, MapPin, Phone, ChevronDown, Youtube, Facebook, Instagram, Send, Loader2, CheckCircle2 } from 'lucide-react';
+import { Menu, X, ArrowRight, Linkedin, Mail, MapPin, Phone, ChevronDown, Youtube, Facebook, Instagram, Send, Loader2, CheckCircle2, LogIn, LogOut, LayoutDashboard } from 'lucide-react';
+import { redirectToLogin, clearToken, isLoggedIn, getRole } from '../utils/auth';
 
 
 interface LayoutProps {
@@ -183,12 +184,44 @@ export default function Layout({ children }: LayoutProps) {
                                         Join a Study
                                         <ArrowRight className="w-4 h-4" />
                                     </Link>
-                                    <Link
-                                        to="/contact"
-                                        className="border-2 border-slate-900 text-slate-900 px-4 2xl:px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-slate-950 hover:text-white transition-all backdrop-blur-md whitespace-nowrap"
+
+                                </>
+                            )}
+                            {!isLoggedIn() ? (
+                                <button
+                                    onClick={redirectToLogin}
+                                    className="bg-slate-900 text-white px-4 2xl:px-8 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-cyan-500 hover:text-slate-900 transition-all shadow-xl flex items-center gap-1 2xl:gap-2 whitespace-nowrap"
+                                >
+                                    <LogIn className="w-4 h-4" />
+                                    Sign In
+                                </button>
+                            ) : (
+                                <>
+                                    {getRole() === "SUPER_ADMIN" && (
+                                        <Link
+                                            to="/dashboard/super-admin"
+                                            className="bg-cyan-500 text-slate-900 px-4 2xl:px-6 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-white transition-all shadow-xl shadow-cyan-500/20 flex items-center gap-1 2xl:gap-2 whitespace-nowrap"
+                                        >
+                                            <LayoutDashboard className="w-4 h-4" />
+                                            Dashboard
+                                        </Link>
+                                    )}
+                                    {getRole() === "ADMIN" && (
+                                        <Link
+                                            to="/dashboard/admin"
+                                            className="bg-cyan-500 text-slate-900 px-4 2xl:px-6 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-white transition-all shadow-xl shadow-cyan-500/20 flex items-center gap-1 2xl:gap-2 whitespace-nowrap"
+                                        >
+                                            <LayoutDashboard className="w-4 h-4" />
+                                            Admin Portal
+                                        </Link>
+                                    )}
+                                    <button
+                                        onClick={() => { clearToken(); window.location.href = "/"; }}
+                                        className="border-2 border-slate-900 text-slate-900 px-4 2xl:px-6 py-3 rounded-xl font-black text-xs uppercase tracking-[0.15em] hover:bg-slate-950 hover:text-white transition-all backdrop-blur-md flex items-center gap-1 2xl:gap-2 whitespace-nowrap"
                                     >
-                                        Contact Sales
-                                    </Link>
+                                        <LogOut className="w-4 h-4" />
+                                        Logout
+                                    </button>
                                 </>
                             )}
                         </div>
@@ -263,13 +296,7 @@ export default function Layout({ children }: LayoutProps) {
                                     </>
                                 ) : (
                                     <>
-                                        <Link
-                                            to="/contact"
-                                            onClick={() => setIsMenuOpen(false)}
-                                            className="block w-full text-center border-2 border-slate-900 text-slate-900 p-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-slate-950 hover:text-white transition-all"
-                                        >
-                                            Contact Sales
-                                        </Link>
+
                                         <Link
                                             to="/trials"
                                             onClick={() => setIsMenuOpen(false)}
@@ -279,6 +306,45 @@ export default function Layout({ children }: LayoutProps) {
                                             <ArrowRight className="w-4 h-4" />
                                         </Link>
                                     </>
+                                )}
+                                {!isLoggedIn() ? (
+                                    <button
+                                        onClick={redirectToLogin}
+                                        className="w-full bg-slate-900 text-white p-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-cyan-500 hover:text-slate-900 transition-all flex items-center justify-center gap-2"
+                                    >
+                                        <LogIn className="w-5 h-5" />
+                                        Sign In
+                                    </button>
+                                ) : (
+                                    <div className="space-y-3">
+                                        {getRole() === "SUPER_ADMIN" && (
+                                            <Link
+                                                to="/dashboard/super-admin"
+                                                onClick={() => setIsMenuOpen(false)}
+                                                className="block w-full text-center bg-cyan-500 text-slate-900 p-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2"
+                                            >
+                                                <LayoutDashboard className="w-5 h-5" />
+                                                Dashboard
+                                            </Link>
+                                        )}
+                                        {getRole() === "ADMIN" && (
+                                            <Link
+                                                to="/dashboard/admin"
+                                                onClick={() => setIsMenuOpen(false)}
+                                                className="block w-full text-center bg-cyan-500 text-slate-900 p-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2"
+                                            >
+                                                <LayoutDashboard className="w-5 h-5" />
+                                                Admin Portal
+                                            </Link>
+                                        )}
+                                        <button
+                                            onClick={() => { clearToken(); window.location.href = "/"; }}
+                                            className="w-full text-center border-2 border-slate-900 text-slate-900 p-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-slate-950 hover:text-white transition-all flex items-center justify-center gap-2"
+                                        >
+                                            <LogOut className="w-5 h-5" />
+                                            Logout
+                                        </button>
+                                    </div>
                                 )}
                             </div>
                         </div>
