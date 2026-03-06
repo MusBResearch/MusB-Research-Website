@@ -147,11 +147,11 @@ export default function Home() {
                                         <div className="space-y-12 flex flex-col items-center text-center">
                                             <div className="space-y-8 max-w-5xl relative">
                                                 <div className="animate-fade-in-up">
-                                                    <span className="text-[13px] md:text-sm font-black uppercase tracking-[0.6em] text-red-700 whitespace-nowrap">
+                                                    <span className="text-[13px] md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.6em] text-red-700 whitespace-normal md:whitespace-nowrap block md:inline-block px-4 md:px-0">
                                                         Bench to Bedside. Discovery to Validation.
                                                     </span>
                                                 </div>
-                                                <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] animate-fade-in-up whitespace-pre-line px-4">
+                                                <h1 className="text-2xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.1] md:leading-[1.05] tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] animate-fade-in-up whitespace-pre-line px-4 break-words">
                                                     {slide.headline}
                                                 </h1>
                                                 <div className="flex justify-center w-full px-4">
